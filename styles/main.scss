@@ -1,0 +1,317 @@
+body{
+	font-size: 16px;
+	line-height: 100%;
+	font-family: 'Droid Serif', serif;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Ubuntu', san-serif;
+	margin: 0;
+}
+$break-xs: 767px;
+$break-s: 768px;
+$break-m: 992px;
+
+.main{
+	background-color: gray;
+	min-width: 100%;
+
+	header{
+		background-color: #404040;
+		height: 55px;
+
+		.top-navigation{
+			margin: 0 auto;
+
+			.logo{
+				display: block;
+				height: 100%;
+				float: left;
+				
+			}
+			nav{
+				display: block;
+				float: left;
+
+				a{
+					display: block;
+					float: left;
+
+					/*Starting Background Positions*/
+					.email{
+						background-image:url("../media/images/nav-icons.png");
+					}
+
+					.linkedin{
+						background-image:url("../media/images/nav-icons.png");
+
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -25px 0;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -35px 0;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -45px 0;
+						}
+					}
+
+					.twitter{
+						background-image:url("../media/images/nav-icons.png");
+
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -50px 0;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -70px 0;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -90px 0;
+						}
+					}
+
+					.github{
+						background-image:url("../media/images/nav-icons.png");
+
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -75px 0;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -105px 0;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -135px 0;
+						}
+					}
+
+					.behance{
+						background-image:url("../media/images/nav-icons.png");
+
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -100px 0;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -140px 0;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -180px 0;
+						}
+					}
+
+					.resume{
+						background-image:url("../media/images/nav-icons.png");
+
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -125px 0;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -175px 0;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -225px 0;
+						}
+					}
+
+					/*All Links*/
+					.email, .linkedin, .twitter, .github, .behance, .resume{
+						//link(s) changes
+						@media screen and (max-width: $break-xs) {
+							height: 25px;
+							width: 25px;
+							background-size: 150px auto;
+							
+						}
+						@media screen and (min-width: $break-s) {
+							height: 35px;
+							width: 35px;
+							background-size: 210px auto;
+							
+						}
+						@media screen and (min-width: $break-m) {
+							height: 45px;
+							width: 45px;
+							background-size: 270px auto;
+							
+						}
+					}
+					/*Ending Background Positions*/
+					.email:hover{
+						@media screen and (max-width: $break-xs) {
+
+							background-position: 0 -25px;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: 0 -35px;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: 0 -45px;
+						}
+					}
+					.linkedin:hover{
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -25px -25px;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -35px -35px;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -45px -45px;
+						}
+					}
+					.twitter:hover{
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -50px -25px;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -70px -35px;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -90px -45px;
+						}
+					}
+					
+					.github:hover{
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -75px -25px;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -105px -35px;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -135px -45px;
+						}
+					}
+
+					.behance:hover{
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -100px -25px;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -140px -35px;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -180px -45px;
+						}
+					}
+
+					.resume:hover{
+						@media screen and (max-width: $break-xs) {
+
+							background-position: -125px -25px;
+						}
+						@media screen and (min-width: $break-s) {
+
+							background-position: -175px -35px;
+						}
+						@media screen and (min-width: $break-m) {
+
+							background-position: -225px -45px;
+						}
+					}
+
+					//anchor changes
+					@media screen and (max-width: $break-xs) {
+
+							margin: 5px 0 5px 22px;
+						}
+						@media screen and (min-width: $break-s) {
+
+							margin: 5px 0 5px 55px;
+						}
+						@media screen and (min-width: $break-m) {
+
+							margin: 5px 0 5px 83px;
+						}
+
+				}
+
+			}
+
+			//.top-navigation changes
+			@media screen and (max-width: $break-xs) {
+				width: 100%;
+				padding: 0 15px;
+				height: 35px;
+			}
+			@media screen and (min-width: $break-s) {
+				width: 100%;
+				padding: 0 15px;
+				height: 45px;
+			}
+			@media screen and (min-width: $break-m) {
+				width: 970px;
+				height: 55px;
+				padding: 0;
+			}
+		}
+
+		//header changes
+		@media screen and (max-width: $break-xs) {
+			height: 35px;
+		}
+		@media screen and (min-width: $break-s) {
+			height: 45px;
+		}
+		@media screen and (min-width: $break-m) {
+			height: 55px;
+		}
+	}
+	.container{
+
+
+		#home{
+			border: 1px solid purple;
+			height: 250px;
+		}
+
+		#test{
+			border: 1px solid purple;
+			height: 250px;
+		}
+
+		//.container changes
+		@media screen and (max-width: $break-xs) {
+			margin: 0;
+			padding: 0;
+		}
+		@media screen and (min-width: $break-s) {
+			margin: 0;
+			padding: 0;
+			//remove the width to strecth the whole screen.
+			width: auto;
+		}
+		@media screen and (min-width: $break-m) {
+			margin: 0 auto;
+			width: 970px;
+		}
+	}
+
+}

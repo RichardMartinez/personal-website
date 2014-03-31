@@ -1,0 +1,208 @@
+body {
+  font-size: 16px;
+  line-height: 100%;
+  font-family: 'Droid Serif', serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', san-serif;
+  margin: 0; }
+
+.main {
+  background-color: gray;
+  min-width: 100%; }
+  .main header {
+    background-color: #404040;
+    height: 55px; }
+    .main header .top-navigation {
+      margin: 0 auto; }
+      .main header .top-navigation .logo {
+        display: block;
+        height: 100%;
+        float: left; }
+      .main header .top-navigation nav {
+        display: block;
+        float: left; }
+        .main header .top-navigation nav a {
+          display: block;
+          float: left;
+          /*Starting Background Positions*/
+          /*All Links*/
+          /*Ending Background Positions*/ }
+          .main header .top-navigation nav a .email {
+            background-image: url("../media/images/nav-icons.png"); }
+          .main header .top-navigation nav a .linkedin {
+            background-image: url("../media/images/nav-icons.png"); }
+            @media screen and (max-width: 767px) {
+              .main header .top-navigation nav a .linkedin {
+                background-position: -25px 0; } }
+            @media screen and (min-width: 768px) {
+              .main header .top-navigation nav a .linkedin {
+                background-position: -35px 0; } }
+            @media screen and (min-width: 992px) {
+              .main header .top-navigation nav a .linkedin {
+                background-position: -45px 0; } }
+          .main header .top-navigation nav a .twitter {
+            background-image: url("../media/images/nav-icons.png"); }
+            @media screen and (max-width: 767px) {
+              .main header .top-navigation nav a .twitter {
+                background-position: -50px 0; } }
+            @media screen and (min-width: 768px) {
+              .main header .top-navigation nav a .twitter {
+                background-position: -70px 0; } }
+            @media screen and (min-width: 992px) {
+              .main header .top-navigation nav a .twitter {
+                background-position: -90px 0; } }
+          .main header .top-navigation nav a .github {
+            background-image: url("../media/images/nav-icons.png"); }
+            @media screen and (max-width: 767px) {
+              .main header .top-navigation nav a .github {
+                background-position: -75px 0; } }
+            @media screen and (min-width: 768px) {
+              .main header .top-navigation nav a .github {
+                background-position: -105px 0; } }
+            @media screen and (min-width: 992px) {
+              .main header .top-navigation nav a .github {
+                background-position: -135px 0; } }
+          .main header .top-navigation nav a .behance {
+            background-image: url("../media/images/nav-icons.png"); }
+            @media screen and (max-width: 767px) {
+              .main header .top-navigation nav a .behance {
+                background-position: -100px 0; } }
+            @media screen and (min-width: 768px) {
+              .main header .top-navigation nav a .behance {
+                background-position: -140px 0; } }
+            @media screen and (min-width: 992px) {
+              .main header .top-navigation nav a .behance {
+                background-position: -180px 0; } }
+          .main header .top-navigation nav a .resume {
+            background-image: url("../media/images/nav-icons.png"); }
+            @media screen and (max-width: 767px) {
+              .main header .top-navigation nav a .resume {
+                background-position: -125px 0; } }
+            @media screen and (min-width: 768px) {
+              .main header .top-navigation nav a .resume {
+                background-position: -175px 0; } }
+            @media screen and (min-width: 992px) {
+              .main header .top-navigation nav a .resume {
+                background-position: -225px 0; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a .email, .main header .top-navigation nav a .linkedin, .main header .top-navigation nav a .twitter, .main header .top-navigation nav a .github, .main header .top-navigation nav a .behance, .main header .top-navigation nav a .resume {
+              height: 25px;
+              width: 25px;
+              background-size: 150px auto; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a .email, .main header .top-navigation nav a .linkedin, .main header .top-navigation nav a .twitter, .main header .top-navigation nav a .github, .main header .top-navigation nav a .behance, .main header .top-navigation nav a .resume {
+              height: 35px;
+              width: 35px;
+              background-size: 210px auto; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a .email, .main header .top-navigation nav a .linkedin, .main header .top-navigation nav a .twitter, .main header .top-navigation nav a .github, .main header .top-navigation nav a .behance, .main header .top-navigation nav a .resume {
+              height: 45px;
+              width: 45px;
+              background-size: 270px auto; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a .email:hover {
+              background-position: 0 -25px; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a .email:hover {
+              background-position: 0 -35px; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a .email:hover {
+              background-position: 0 -45px; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a .linkedin:hover {
+              background-position: -25px -25px; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a .linkedin:hover {
+              background-position: -35px -35px; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a .linkedin:hover {
+              background-position: -45px -45px; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a .twitter:hover {
+              background-position: -50px -25px; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a .twitter:hover {
+              background-position: -70px -35px; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a .twitter:hover {
+              background-position: -90px -45px; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a .github:hover {
+              background-position: -75px -25px; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a .github:hover {
+              background-position: -105px -35px; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a .github:hover {
+              background-position: -135px -45px; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a .behance:hover {
+              background-position: -100px -25px; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a .behance:hover {
+              background-position: -140px -35px; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a .behance:hover {
+              background-position: -180px -45px; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a .resume:hover {
+              background-position: -125px -25px; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a .resume:hover {
+              background-position: -175px -35px; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a .resume:hover {
+              background-position: -225px -45px; } }
+          @media screen and (max-width: 767px) {
+            .main header .top-navigation nav a {
+              margin: 5px 0 5px 22px; } }
+          @media screen and (min-width: 768px) {
+            .main header .top-navigation nav a {
+              margin: 5px 0 5px 55px; } }
+          @media screen and (min-width: 992px) {
+            .main header .top-navigation nav a {
+              margin: 5px 0 5px 83px; } }
+      @media screen and (max-width: 767px) {
+        .main header .top-navigation {
+          width: 100%;
+          padding: 0 15px;
+          height: 35px; } }
+      @media screen and (min-width: 768px) {
+        .main header .top-navigation {
+          width: 100%;
+          padding: 0 15px;
+          height: 45px; } }
+      @media screen and (min-width: 992px) {
+        .main header .top-navigation {
+          width: 970px;
+          height: 55px;
+          padding: 0; } }
+    @media screen and (max-width: 767px) {
+      .main header {
+        height: 35px; } }
+    @media screen and (min-width: 768px) {
+      .main header {
+        height: 45px; } }
+    @media screen and (min-width: 992px) {
+      .main header {
+        height: 55px; } }
+  .main .container #home {
+    border: 1px solid purple;
+    height: 250px; }
+  .main .container #test {
+    border: 1px solid purple;
+    height: 250px; }
+  @media screen and (max-width: 767px) {
+    .main .container {
+      margin: 0;
+      padding: 0; } }
+  @media screen and (min-width: 768px) {
+    .main .container {
+      margin: 0;
+      padding: 0;
+      width: auto; } }
+  @media screen and (min-width: 992px) {
+    .main .container {
+      margin: 0 auto;
+      width: 970px; } }
