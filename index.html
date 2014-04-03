@@ -24,6 +24,7 @@
 			</div>
 		</header>
 		<div class="container">
+			<span class="nav-to-home" id="home-nav-point"></span>
 			<section id="home" class="row">
 				<div class="col-xs-12 col-sm-6 col-md-5 bearded-greetings">
 				</div>
@@ -32,19 +33,65 @@
 					<p>My name is Richard Martinez, and I love design and development. I have an Associate's Degree in Graphic Communications, and a Bachelor's Degree in Digital Media Design. I believe that design is an evolving field, and have continued my education through self- teaching methods.</p>
 				</article>
 			</section>
+			<span class="nav-to-about" id="about-nav-point"></span>
 			<section id="about" class="row">
-				<div class="inspiration">
-					<img src="media/images/inspiration-icon.png">
-				</div>
-				<article class="motivation">
-					<h1>Why I'm Motivated</h1>
-					<p>I strive to learn the most I can from every opportunity that is presented to me. I appreciate many aspects of design, and my enthusiasm for these aspects fuels my desire to continue learning and improving my abilities.</p>
+				<article>
+					<h1 class="xs-title-pos">Why I'm Motivated</h1>
+					<div class="motivation-img">
+						<img src="media/images/motivation-icon.png">
+					</div>
+					<div class="motivation-text">
+						<h1>Why I'm Motivated</h1>
+						<p>I strive to learn the most I can from every opportunity that is presented to me. I appreciate many aspects of design, and my enthusiasm for these aspects fuels my desire to continue learning and improving my abilities.</p>
+					</div>
+				</article>
+				<article>
+					<h1 class="xs-title-pos">My Inspiration</h1>
+					<div class="inspiration-img">
+						<img src="media/images/inspiration-icon.png">
+					</div>
+					<div class="inspiration-text">
+						<h1>My Inspiration</h1>
+						<p>I've always been inspired by the melding of creative ideas and functionality. I find it very exciting to see new and creative ways to deliver information to a particular target audience.</p>
+					</div>
 				</article>
 			</section>
-			<section>
-
+			<span class="nav-to-blog" id="blog-nav-point"></span>
+			<section id="blog" class="row">
+				<article>
+					<h1>How About A Fun Blog</h1>
+					<img src="media/images/blog-picture.jpg">
+					<p>Hello there visitor. It seems you have found my blog. I plan to showcase my most prominent interests in the posts below. I hope you find them interesting as well. Have a look around, and feel free to tell me what you think via the email above.</p>
+				</article>
+				<div class="tags">
+					<h3>Tags Of Interest:</h3>
+						<ul>
+							<li class="science"></li>
+							<li class="design"></li>
+							<li class="technology"></li>
+							<li class="humor"></li>
+							<li class="beard"></li>
+							<li class="game"></li>
+						</ul>
+				</div>
+			</section>
+			<section id="blog-posts" class="row">
+				<article>
+					<h1>Phantom Beard Syndrome</h1>
+					<img src="media/images/blog-picture.jpg">
+					<p>Hello there visitor. It seems you have found my blog. I plan to showcase my most prominent interests in the posts below. I hope you find them interesting as well. Have a look around, and feel free to tell me what you think via the email above.</p>
+				</article>
 			</section>
 		</div>
+		<footer class="navbar-fixed-bottom">
+			<nav>	
+				<a href="#about-nav-point" target="_self" class="about-btn" title="About Me">about</a>
+				<span>|</span>
+				<a href="#blog-nav-point" target="_self" class="blog-btn" title="Blog">blog</a>
+				<span>|</span>
+				<a href="#home-nav-point" target="_self" class="home-btn" title="Home">home</a>
+			</nav>
+		</footer>
 	</div>
 </body>
 </html>

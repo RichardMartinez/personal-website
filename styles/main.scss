@@ -1,13 +1,13 @@
 @mixin atMedia($screenSize) {
-  @if $screenSize == xs{
-     @media only screen and (max-width: 767px ){@content;}
-  }
-  @else if $screenSize == s{
-    @media only screen and (min-width: 768px ){@content;}
-  }
-  @else if $screenSize == m{
-    @media only screen and (min-width: 992px ){@content;}
-  }
+	@if $screenSize == xs{
+		@media only screen and (max-width: 767px ){@content;}
+	}
+	@else if $screenSize == s{
+		@media only screen and (min-width: 768px ){@content;}
+	}
+	@else if $screenSize == m{
+		@media only screen and (min-width: 992px ){@content;}
+	}
 }
 
 body{
@@ -167,6 +167,17 @@ p{
 	}
 	.container{
 
+		.nav-to-home, .nav-to-about, .nav-to-blog{
+			@include atMedia(xs) {display: block; visibility: hidden; height: 37px;}
+			@include atMedia(s) {display: block; visibility: hidden; height: 47px;}
+			@include atMedia(m) {display: block; visibility: hidden; height: 57px;}
+		}
+
+		.nav-to-about, .nav-to-blog{
+			@include atMedia(xs) {margin: -37px 0 0 0;}
+			@include atMedia(s) {margin: -47px 0 0 0;}
+			@include atMedia(m) {margin: -57px 0 0 0;}
+		}
 
 		#home{
 			height: 100%;
@@ -198,20 +209,163 @@ p{
 		}
 
 		#about{
-			height: 250px;
 			padding: 20px 15px;
 			background-color:#b3d92b;
 
-			.inspiration{
-				float: left;
-				margin: 0 10px 10px 0;
+			article{
+				//size of image
+				min-height: 157px;
+				display: inline-block;
+
+				.xs-title-pos{
+					color: #000;
+					@include atMedia(xs) {display: block; text-align: center;}
+					@include atMedia(s) {display: none;}
+					@include atMedia(m) {display: none;}
+				}
+
+				.motivation-img, .inspiration-img{
+					margin: 0 10px 10px 0;
+				}
+				.motivation-img{
+					float: left;
+				}
+				.inspiration-img{
+					@include atMedia(xs) {float: left;}
+					@include atMedia(s) {float: right; margin: 0 0 0 10px;}
+					@include atMedia(m) {float: right; margin: 0 0 0 10px;}
+				}
+				.motivation-text, .inspiration-text{
+
+					h1{
+						color: #000;
+						@include atMedia(xs) {display: none;}
+						@include atMedia(s) {display: block;}
+						@include atMedia(m) {display: block;}
+					}
+				}
+				.inspiration-text{
+						@include atMedia(xs) {text-align: left;}
+						@include atMedia(s) {text-align: right;}
+						@include atMedia(m) {text-align: right;}
+				}
+			}
+
+			article:first-child{
+				margin-bottom: 20px;
+			}
+
+		}
+
+		#blog{
+			background-color: #404040;
+			padding: 20px 15px;
+
+			article{
+				display: inline-block;
+
+				h1{
+					color: #f07000;
+				}
+
+				img{
+					float: left;
+					margin: 10px 10px 10px 0;
+					display: block;
+
+					@include atMedia(xs) {width: 150px}
+					@include atMedia(s) {width: 273px;}
+					@include atMedia(m) {width: 273px;}
+				}
+
+				p{
+					color: #f2f2f2;
+
+					@include atMedia(xs) {margin: 5px 0 0 0}
+					@include atMedia(s) {margin: 55px 0 0 0;}
+					@include atMedia(m) {margin: 55px 0 0 0;}
+				}
+			}
+			.tags{
+				h3{
+					color: #f07000;
+					margin: 0 10px 0 0;
+
+					@include atMedia(xs) {float: none; line-height: 31px; font-size: 18px;}
+					@include atMedia(s) {float: left; line-height: 49px; font-size: 21px;}
+					@include atMedia(m) {float: left; line-height: 66px; font-size: 24px;}
+				}
+				ul{
+					padding: 0;
+
+					@include atMedia(xs) {height: 31px;}
+					@include atMedia(s) {height: 49px;}
+					@include atMedia(m) {height: 66px;}
+
+					li{
+						list-style-type: none;
+						float: left;
+						margin: 0 10px 0 0;
+						height: 100%;
+						background-image: url("../media/images/all-blog-tags.png");
+
+						@include atMedia(xs) {width: 36px; background-size: 216px auto;}
+						@include atMedia(s) {width: 56px; background-size: 336px auto;}
+						@include atMedia(m) {width: 76px; background-size: 456px auto;}
+					}
+
+					.science{
+
+					}
+					.design{
+						@include atMedia(xs) {background-position: -36px 0;}
+						@include atMedia(s) {background-position: -56px 0;}
+						@include atMedia(m) {background-position: -76px 0;}
+					}
+					.technology{
+						@include atMedia(xs) {background-position: -72px 0;}
+						@include atMedia(s) {background-position: -112px 0;}
+						@include atMedia(m) {background-position: -152px 0;}
+					}
+					.beard{
+						@include atMedia(xs) {background-position: -108px 0;}
+						@include atMedia(s) {background-position: -168px 0;}
+						@include atMedia(m) {background-position: -228px 0;}
+					}
+					.humor{
+						@include atMedia(xs) {background-position: -144px 0;}
+						@include atMedia(s) {background-position: -224px 0;}
+						@include atMedia(m) {background-position: -304px 0;}
+					}
+					.game{
+						@include atMedia(xs) {background-position: -180px 0;}
+						@include atMedia(s) {background-position: -280px 0;}
+						@include atMedia(m) {background-position: -380px 0;}
+					}
+
+				}
 			}
 		}
 
 		//.container changes
-		@include atMedia(xs) {margin: 35px 0 0 0;}
-		@include atMedia(s) {margin: 45px 0 0 0; width: auto;}
-		@include atMedia(m) {margin: 55px auto 0 auto; width: 970px;}
+		@include atMedia(xs) {margin: 0 0 25px 0;}
+		@include atMedia(s) {margin: 0 0 30px 0; width: auto;}
+		@include atMedia(m) {margin: 0 auto 35px auto; width: 970px;}
+	}
+
+	footer{
+		background-color: #404040;
+		text-align: center;
+		font-family: 'Ubuntu', san-serif;
+		color: #3079d9;
+		box-shadow: 0px -2px 2px #000;
+
+		span{
+			color: #b3d92b;
+		}
+		@include atMedia(xs) {height: 25px; line-height: 25px; font-size: 0.85em;}
+		@include atMedia(s) {height: 30px; line-height: 30px; font-size: 1em;}
+		@include atMedia(m) {height: 35px; line-height: 35px; width: 970px; padding: 0 15px; margin: 0 auto; font-size: 1.15em;}
 	}
 
 }

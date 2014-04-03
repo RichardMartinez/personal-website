@@ -211,6 +211,30 @@ h1, h2, h3, h4, h5, h6 {
     @media only screen and (min-width: 992px) {
       .main header {
         height: 55px; } }
+  @media only screen and (max-width: 767px) {
+    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog {
+      display: block;
+      visibility: hidden;
+      height: 37px; } }
+  @media only screen and (min-width: 768px) {
+    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog {
+      display: block;
+      visibility: hidden;
+      height: 47px; } }
+  @media only screen and (min-width: 992px) {
+    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog {
+      display: block;
+      visibility: hidden;
+      height: 57px; } }
+  @media only screen and (max-width: 767px) {
+    .main .container .nav-to-about, .main .container .nav-to-blog {
+      margin: -37px 0 0 0; } }
+  @media only screen and (min-width: 768px) {
+    .main .container .nav-to-about, .main .container .nav-to-blog {
+      margin: -47px 0 0 0; } }
+  @media only screen and (min-width: 992px) {
+    .main .container .nav-to-about, .main .container .nav-to-blog {
+      margin: -57px 0 0 0; } }
   .main .container #home {
     height: 100%;
     padding: 20px 0; }
@@ -248,20 +272,217 @@ h1, h2, h3, h4, h5, h6 {
         border-right: 1px dashed rgba(48, 121, 217, 0.5);
         border-left: 1px dashed rgba(48, 121, 217, 0.5); } }
   .main .container #about {
-    height: 250px;
     padding: 20px 15px;
     background-color: #b3d92b; }
-    .main .container #about .inspiration {
-      float: left;
-      margin: 0 10px 10px 0; }
+    .main .container #about article {
+      min-height: 157px;
+      display: inline-block; }
+      .main .container #about article .xs-title-pos {
+        color: #000; }
+        @media only screen and (max-width: 767px) {
+          .main .container #about article .xs-title-pos {
+            display: block;
+            text-align: center; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #about article .xs-title-pos {
+            display: none; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #about article .xs-title-pos {
+            display: none; } }
+      .main .container #about article .motivation-img, .main .container #about article .inspiration-img {
+        margin: 0 10px 10px 0; }
+      .main .container #about article .motivation-img {
+        float: left; }
+      @media only screen and (max-width: 767px) {
+        .main .container #about article .inspiration-img {
+          float: left; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #about article .inspiration-img {
+          float: right;
+          margin: 0 0 0 10px; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #about article .inspiration-img {
+          float: right;
+          margin: 0 0 0 10px; } }
+      .main .container #about article .motivation-text h1, .main .container #about article .inspiration-text h1 {
+        color: #000; }
+        @media only screen and (max-width: 767px) {
+          .main .container #about article .motivation-text h1, .main .container #about article .inspiration-text h1 {
+            display: none; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #about article .motivation-text h1, .main .container #about article .inspiration-text h1 {
+            display: block; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #about article .motivation-text h1, .main .container #about article .inspiration-text h1 {
+            display: block; } }
+      @media only screen and (max-width: 767px) {
+        .main .container #about article .inspiration-text {
+          text-align: left; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #about article .inspiration-text {
+          text-align: right; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #about article .inspiration-text {
+          text-align: right; } }
+    .main .container #about article:first-child {
+      margin-bottom: 20px; }
+  .main .container #blog {
+    background-color: #404040;
+    padding: 20px 15px; }
+    .main .container #blog article {
+      display: inline-block; }
+      .main .container #blog article h1 {
+        color: #f07000; }
+      .main .container #blog article img {
+        float: left;
+        margin: 10px 10px 10px 0;
+        display: block; }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog article img {
+            width: 150px; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog article img {
+            width: 273px; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog article img {
+            width: 273px; } }
+      .main .container #blog article p {
+        color: #f2f2f2; }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog article p {
+            margin: 5px 0 0 0; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog article p {
+            margin: 55px 0 0 0; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog article p {
+            margin: 55px 0 0 0; } }
+    .main .container #blog .tags h3 {
+      color: #f07000;
+      margin: 0 10px 0 0; }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog .tags h3 {
+          float: none;
+          line-height: 31px;
+          font-size: 18px; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog .tags h3 {
+          float: left;
+          line-height: 49px;
+          font-size: 21px; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog .tags h3 {
+          float: left;
+          line-height: 66px;
+          font-size: 24px; } }
+    .main .container #blog .tags ul {
+      padding: 0; }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog .tags ul {
+          height: 31px; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog .tags ul {
+          height: 49px; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog .tags ul {
+          height: 66px; } }
+      .main .container #blog .tags ul li {
+        list-style-type: none;
+        float: left;
+        margin: 0 10px 0 0;
+        height: 100%;
+        background-image: url("../media/images/all-blog-tags.png"); }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog .tags ul li {
+            width: 36px;
+            background-size: 216px auto; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog .tags ul li {
+            width: 56px;
+            background-size: 336px auto; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog .tags ul li {
+            width: 76px;
+            background-size: 456px auto; } }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog .tags ul .design {
+          background-position: -36px 0; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog .tags ul .design {
+          background-position: -56px 0; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog .tags ul .design {
+          background-position: -76px 0; } }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog .tags ul .technology {
+          background-position: -72px 0; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog .tags ul .technology {
+          background-position: -112px 0; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog .tags ul .technology {
+          background-position: -152px 0; } }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog .tags ul .beard {
+          background-position: -108px 0; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog .tags ul .beard {
+          background-position: -168px 0; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog .tags ul .beard {
+          background-position: -228px 0; } }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog .tags ul .humor {
+          background-position: -144px 0; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog .tags ul .humor {
+          background-position: -224px 0; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog .tags ul .humor {
+          background-position: -304px 0; } }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog .tags ul .game {
+          background-position: -180px 0; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog .tags ul .game {
+          background-position: -280px 0; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog .tags ul .game {
+          background-position: -380px 0; } }
   @media only screen and (max-width: 767px) {
     .main .container {
-      margin: 35px 0 0 0; } }
+      margin: 0 0 25px 0; } }
   @media only screen and (min-width: 768px) {
     .main .container {
-      margin: 45px 0 0 0;
+      margin: 0 0 30px 0;
       width: auto; } }
   @media only screen and (min-width: 992px) {
     .main .container {
-      margin: 55px auto 0 auto;
+      margin: 0 auto 35px auto;
       width: 970px; } }
+  .main footer {
+    background-color: #404040;
+    text-align: center;
+    font-family: 'Ubuntu', san-serif;
+    color: #3079d9;
+    box-shadow: 0px -2px 2px #000; }
+    .main footer span {
+      color: #b3d92b; }
+    @media only screen and (max-width: 767px) {
+      .main footer {
+        height: 25px;
+        line-height: 25px;
+        font-size: 0.85em; } }
+    @media only screen and (min-width: 768px) {
+      .main footer {
+        height: 30px;
+        line-height: 30px;
+        font-size: 1em; } }
+    @media only screen and (min-width: 992px) {
+      .main footer {
+        height: 35px;
+        line-height: 35px;
+        width: 970px;
+        padding: 0 15px;
+        margin: 0 auto;
+        font-size: 1.15em; } }
