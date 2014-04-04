@@ -30,6 +30,9 @@ h1, h2, h3, h4, h5, h6 {
   p {
     font-size: 1.15em; } }
 
+a:hover {
+  text-decoration: none; }
+
 .main {
   min-width: 100%; }
   .main header {
@@ -212,28 +215,28 @@ h1, h2, h3, h4, h5, h6 {
       .main header {
         height: 55px; } }
   @media only screen and (max-width: 767px) {
-    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog {
+    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog, .main .container .nav-to-behind-the-beard, .main .container .nav-to-phantom-beard-syndrome {
       display: block;
       visibility: hidden;
       height: 37px; } }
   @media only screen and (min-width: 768px) {
-    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog {
+    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog, .main .container .nav-to-behind-the-beard, .main .container .nav-to-phantom-beard-syndrome {
       display: block;
       visibility: hidden;
       height: 47px; } }
   @media only screen and (min-width: 992px) {
-    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog {
+    .main .container .nav-to-home, .main .container .nav-to-about, .main .container .nav-to-blog, .main .container .nav-to-behind-the-beard, .main .container .nav-to-phantom-beard-syndrome {
       display: block;
       visibility: hidden;
       height: 57px; } }
   @media only screen and (max-width: 767px) {
-    .main .container .nav-to-about, .main .container .nav-to-blog {
+    .main .container .nav-to-about, .main .container .nav-to-blog, .main .container .nav-to-behind-the-beard, .main .container .nav-to-phantom-beard-syndrome {
       margin: -37px 0 0 0; } }
   @media only screen and (min-width: 768px) {
-    .main .container .nav-to-about, .main .container .nav-to-blog {
+    .main .container .nav-to-about, .main .container .nav-to-blog, .main .container .nav-to-behind-the-beard, .main .container .nav-to-phantom-beard-syndrome {
       margin: -47px 0 0 0; } }
   @media only screen and (min-width: 992px) {
-    .main .container .nav-to-about, .main .container .nav-to-blog {
+    .main .container .nav-to-about, .main .container .nav-to-blog, .main .container .nav-to-behind-the-beard, .main .container .nav-to-phantom-beard-syndrome {
       margin: -57px 0 0 0; } }
   .main .container #home {
     height: 100%;
@@ -449,6 +452,177 @@ h1, h2, h3, h4, h5, h6 {
       @media only screen and (min-width: 992px) {
         .main .container #blog .tags ul .game {
           background-position: -380px 0; } }
+  .main .container #blog-posts {
+    padding: 20px 15px;
+    /*Blog Posts***********************************************************************************/
+    /*The End Of The Blog Posts Section*********************************************************/ }
+    .main .container #blog-posts article:last-child {
+      margin: 0; }
+    .main .container #blog-posts article {
+      margin: 0 0 50px 0; }
+      .main .container #blog-posts article .title-section {
+        margin: 0;
+        padding: 0 0 5px 0;
+        border-bottom: 1px dashed rgba(64, 64, 64, 0.5); }
+        .main .container #blog-posts article .title-section img {
+          float: left;
+          margin: 0 5px 0 0; }
+          @media only screen and (max-width: 767px) {
+            .main .container #blog-posts article .title-section img {
+              width: 26px; } }
+          @media only screen and (min-width: 768px) {
+            .main .container #blog-posts article .title-section img {
+              width: 31px; } }
+          @media only screen and (min-width: 992px) {
+            .main .container #blog-posts article .title-section img {
+              width: 36px; } }
+        .main .container #blog-posts article .title-section h3 {
+          color: #63b0f2; }
+          @media only screen and (max-width: 767px) {
+            .main .container #blog-posts article .title-section h3 {
+              line-height: 26px;
+              font-size: 16px; } }
+          @media only screen and (min-width: 768px) {
+            .main .container #blog-posts article .title-section h3 {
+              line-height: 31px;
+              font-size: 18px; } }
+          @media only screen and (min-width: 992px) {
+            .main .container #blog-posts article .title-section h3 {
+              line-height: 36px;
+              font-size: 20px; } }
+      .main .container #blog-posts article .post-content a {
+        color: #3079d9; }
+      .main .container #blog-posts article .post-content a:hover {
+        color: #b3d92b; }
+      .main .container #blog-posts article .post-content figure {
+        margin: 10px 0; }
+        .main .container #blog-posts article .post-content figure img {
+          width: 100%;
+          box-sizing: border-box; }
+        .main .container #blog-posts article .post-content figure figcaption {
+          color: #63b0f2;
+          font-family: 'Ubuntu', san-serif; }
+          @media only screen and (max-width: 767px) {
+            .main .container #blog-posts article .post-content figure figcaption {
+              font-size: 0.75em; } }
+          @media only screen and (min-width: 768px) {
+            .main .container #blog-posts article .post-content figure figcaption {
+              font-size: 0.9em; } }
+          @media only screen and (min-width: 992px) {
+            .main .container #blog-posts article .post-content figure figcaption {
+              font-size: 1.05em; } }
+      .main .container #blog-posts article .post-content .subtitle {
+        color: #000;
+        font-family: 'Droid Serif', serif;
+        margin: 15px 0 5px 0; }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog-posts article .post-content .subtitle {
+            font-size: 18px; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog-posts article .post-content .subtitle {
+            font-size: 21px; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog-posts article .post-content .subtitle {
+            font-size: 24px; } }
+      .main .container #blog-posts article .post-content p:last-child {
+        margin: 0; }
+      .main .container #blog-posts article .post-content .small-tags {
+        margin: 20px 0 0 0; }
+        .main .container #blog-posts article .post-content .small-tags h4 {
+          float: left;
+          margin: 0 10px 0 0;
+          color: #404040; }
+          @media only screen and (max-width: 767px) {
+            .main .container #blog-posts article .post-content .small-tags h4 {
+              font-size: 14px;
+              line-height: 29px; } }
+          @media only screen and (min-width: 768px) {
+            .main .container #blog-posts article .post-content .small-tags h4 {
+              font-size: 16px;
+              line-height: 32px; } }
+          @media only screen and (min-width: 992px) {
+            .main .container #blog-posts article .post-content .small-tags h4 {
+              font-size: 18px;
+              line-height: 35px; } }
+        .main .container #blog-posts article .post-content .small-tags ul li {
+          list-style-type: none;
+          background-image: url("../media/images/blog-post-section/all-blog-tags-sm.png");
+          float: left; }
+          @media only screen and (max-width: 767px) {
+            .main .container #blog-posts article .post-content .small-tags ul li {
+              width: 29px;
+              height: 29px;
+              background-size: 174px auto; } }
+          @media only screen and (min-width: 768px) {
+            .main .container #blog-posts article .post-content .small-tags ul li {
+              width: 32px;
+              height: 32px;
+              background-size: 192px auto; } }
+          @media only screen and (min-width: 992px) {
+            .main .container #blog-posts article .post-content .small-tags ul li {
+              width: 35px;
+              height: 35px;
+              background-size: 210px auto; } }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog-posts article .post-content .small-tags ul .design-sm {
+            background-position: -29px 0; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog-posts article .post-content .small-tags ul .design-sm {
+            background-position: -32px 0; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog-posts article .post-content .small-tags ul .design-sm {
+            background-position: -35px 0; } }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog-posts article .post-content .small-tags ul .technology-sm {
+            background-position: -58px 0; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog-posts article .post-content .small-tags ul .technology-sm {
+            background-position: -64px 0; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog-posts article .post-content .small-tags ul .technology-sm {
+            background-position: -70px 0; } }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog-posts article .post-content .small-tags ul .beard-sm {
+            background-position: -87px 0; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog-posts article .post-content .small-tags ul .beard-sm {
+            background-position: -96px 0; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog-posts article .post-content .small-tags ul .beard-sm {
+            background-position: -105px 0; } }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog-posts article .post-content .small-tags ul .humor-sm {
+            background-position: -116px 0; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog-posts article .post-content .small-tags ul .humor-sm {
+            background-position: -128px 0; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog-posts article .post-content .small-tags ul .humor-sm {
+            background-position: -140px 0; } }
+        @media only screen and (max-width: 767px) {
+          .main .container #blog-posts article .post-content .small-tags ul .game-sm {
+            background-position: -145px 0; } }
+        @media only screen and (min-width: 768px) {
+          .main .container #blog-posts article .post-content .small-tags ul .game-sm {
+            background-position: -160px 0; } }
+        @media only screen and (min-width: 992px) {
+          .main .container #blog-posts article .post-content .small-tags ul .game-sm {
+            background-position: -175px 0; } }
+      @media only screen and (max-width: 767px) {
+        .main .container #blog-posts article .post-content {
+          padding: 0 26px; } }
+      @media only screen and (min-width: 768px) {
+        .main .container #blog-posts article .post-content {
+          padding: 0 31px; } }
+      @media only screen and (min-width: 992px) {
+        .main .container #blog-posts article .post-content {
+          padding: 0  36px; } }
+    .main .container #blog-posts #phantom-beard-syndrome .post-content figure img#new-beard {
+      border: 1px dashed rgba(64, 64, 64, 0.5); }
+    .main .container #blog-posts #behind-the-beard .post-content figure .image-container:first-child {
+      padding-left: 0; }
+    .main .container #blog-posts #behind-the-beard .post-content figure .image-container:last-child {
+      padding-right: 0; }
   @media only screen and (max-width: 767px) {
     .main .container {
       margin: 0 0 25px 0; } }
@@ -461,23 +635,26 @@ h1, h2, h3, h4, h5, h6 {
       margin: 0 auto 35px auto;
       width: 970px; } }
   .main footer {
+    box-shadow: 0px -2px 2px #000;
     background-color: #404040;
-    text-align: center;
-    font-family: 'Ubuntu', san-serif;
-    color: #3079d9;
-    box-shadow: 0px -2px 2px #000; }
+    text-align: center; }
+    .main footer a {
+      font-family: 'Ubuntu', san-serif;
+      color: #3079d9; }
+    .main footer a:hover {
+      color: #b3d92b; }
     .main footer span {
       color: #b3d92b; }
     @media only screen and (max-width: 767px) {
       .main footer {
         height: 25px;
         line-height: 25px;
-        font-size: 0.85em; } }
+        font-size: 1.15em; } }
     @media only screen and (min-width: 768px) {
       .main footer {
         height: 30px;
         line-height: 30px;
-        font-size: 1em; } }
+        font-size: 1.2em; } }
     @media only screen and (min-width: 992px) {
       .main footer {
         height: 35px;
@@ -485,4 +662,4 @@ h1, h2, h3, h4, h5, h6 {
         width: 970px;
         padding: 0 15px;
         margin: 0 auto;
-        font-size: 1.15em; } }
+        font-size: 1.2em; } }

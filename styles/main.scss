@@ -32,6 +32,9 @@ p{
 	@include atMedia(s) {font-size: 1em;}
 	@include atMedia(m) {font-size: 1.15em;}
 }
+a:hover{
+	text-decoration: none;
+}
 .main{
 	min-width: 100%;
 
@@ -110,7 +113,6 @@ p{
 						@include atMedia(s) {height: 35px; width: 35px; background-size: 210px auto;}
 						@include atMedia(m) {height: 45px; width: 45px; background-size: 270px auto;}
 					}
-
 					/*Ending Background Positions*/
 					.email:hover{
 						@include atMedia(xs) {background-position: 0 -25px;}
@@ -167,13 +169,13 @@ p{
 	}
 	.container{
 
-		.nav-to-home, .nav-to-about, .nav-to-blog{
+		.nav-to-home, .nav-to-about, .nav-to-blog, .nav-to-behind-the-beard, .nav-to-phantom-beard-syndrome{
 			@include atMedia(xs) {display: block; visibility: hidden; height: 37px;}
 			@include atMedia(s) {display: block; visibility: hidden; height: 47px;}
 			@include atMedia(m) {display: block; visibility: hidden; height: 57px;}
 		}
 
-		.nav-to-about, .nav-to-blog{
+		.nav-to-about, .nav-to-blog, .nav-to-behind-the-beard, .nav-to-phantom-beard-syndrome{
 			@include atMedia(xs) {margin: -37px 0 0 0;}
 			@include atMedia(s) {margin: -47px 0 0 0;}
 			@include atMedia(m) {margin: -57px 0 0 0;}
@@ -245,9 +247,9 @@ p{
 					}
 				}
 				.inspiration-text{
-						@include atMedia(xs) {text-align: left;}
-						@include atMedia(s) {text-align: right;}
-						@include atMedia(m) {text-align: right;}
+					@include atMedia(xs) {text-align: left;}
+					@include atMedia(s) {text-align: right;}
+					@include atMedia(m) {text-align: right;}
 				}
 			}
 
@@ -347,6 +349,187 @@ p{
 			}
 		}
 
+		#blog-posts{
+			padding: 20px 15px;
+
+			article:last-child{
+				margin: 0;
+			}
+
+			article{
+				margin: 0 0 50px 0;
+
+				.title-section{
+					margin: 0;
+					padding: 0 0 5px 0;
+					border-bottom: 1px dashed rgba(64, 64, 64, 0.5);
+
+					img{
+						float: left;
+						margin: 0 5px 0 0;
+
+						@include atMedia(xs) {width: 26px;}
+						@include atMedia(s) {width: 31px;}
+						@include atMedia(m) {width: 36px;}
+
+					}
+					h3{
+						color: #63b0f2;
+						@include atMedia(xs) {line-height: 26px; font-size: 16px;}
+						@include atMedia(s) {line-height: 31px; font-size: 18px;}
+						@include atMedia(m) {line-height: 36px; font-size: 20px;}
+					}
+				}
+				.post-content{
+
+					a{
+						color: #3079d9;
+					}
+					a:hover{
+						color: #b3d92b;
+					}
+
+					figure{
+
+						margin: 10px 0;
+
+						img{
+							width: 100%;
+							box-sizing: border-box;
+						}
+
+						figcaption{
+							color: #63b0f2;
+							font-family: 'Ubuntu', san-serif;
+
+								@include atMedia(xs) {font-size: 0.75em;}
+								@include atMedia(s) {font-size: 0.9em;}
+								@include atMedia(m) {font-size: 1.05em;}
+						}
+
+					}
+
+					.subtitle{
+						color: #000;
+						font-family: 'Droid Serif', serif;
+						margin: 15px 0 5px 0;
+
+						@include atMedia(xs) {font-size: 18px;}
+						@include atMedia(s) {font-size: 21px;}
+						@include atMedia(m) {font-size: 24px;}
+					}
+					
+					p:last-child{
+						margin: 0;
+
+					}
+
+					.small-tags{
+						margin: 20px 0 0 0;
+
+						h4{
+							float: left;
+							margin: 0 10px 0 0;
+							color: #404040;
+
+							@include atMedia(xs) {font-size: 14px; line-height: 29px;}
+							@include atMedia(s) {font-size: 16px; line-height: 32px;}
+							@include atMedia(m) {font-size: 18px; line-height: 35px;}
+
+						}
+
+						ul{
+
+
+							li{
+								list-style-type: none;
+								background-image:url("../media/images/blog-post-section/all-blog-tags-sm.png");
+								float: left;
+								@include atMedia(xs) {width: 29px; height: 29px; background-size: 174px auto;}
+								@include atMedia(s) {width: 32px; height: 32px; background-size: 192px auto;}
+								@include atMedia(m) {width: 35px; height: 35px; background-size: 210px auto;}
+							}
+
+							.science-sm{
+
+							}
+							.design-sm{
+								@include atMedia(xs) {background-position: -29px 0;}
+								@include atMedia(s) {background-position: -32px 0;}
+								@include atMedia(m) {background-position: -35px 0;}
+							}
+							.technology-sm{
+								@include atMedia(xs) {background-position: -58px 0;}
+								@include atMedia(s) {background-position: -64px 0;}
+								@include atMedia(m) {background-position: -70px 0;}
+							}
+							.beard-sm{
+								@include atMedia(xs) {background-position: -87px 0;}
+								@include atMedia(s) {background-position: -96px 0;}
+								@include atMedia(m) {background-position: -105px 0;}
+							}
+							.humor-sm{
+								@include atMedia(xs) {background-position: -116px 0;}
+								@include atMedia(s) {background-position: -128px 0;}
+								@include atMedia(m) {background-position: -140px 0;}								
+							}
+							.game-sm{
+								@include atMedia(xs) {background-position: -145px 0;}
+								@include atMedia(s) {background-position: -160px 0;}
+								@include atMedia(m) {background-position: -175px 0;}
+								
+							}
+						}
+					}
+					//Padding is same size as calendar icon.
+					@include atMedia(xs) {padding: 0 26px;}
+					@include atMedia(s) {padding: 0 31px;}
+					@include atMedia(m) {padding: 0  36px;}
+				}
+			}
+
+			/*Blog Posts***********************************************************************************/
+
+			#phantom-beard-syndrome{
+
+
+				.post-content{
+
+					figure{
+
+						img#new-beard{
+
+							border: 1px dashed rgba(64, 64, 64, 0.5);
+
+						}
+					}
+
+				}
+
+			}
+
+			#behind-the-beard{
+
+				.post-content{
+
+					figure{
+
+						.image-container{
+
+						}
+						.image-container:first-child{
+							padding-left: 0;
+						}
+						.image-container:last-child{
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		
+			/*The End Of The Blog Posts Section*********************************************************/
+		}
+
 		//.container changes
 		@include atMedia(xs) {margin: 0 0 25px 0;}
 		@include atMedia(s) {margin: 0 0 30px 0; width: auto;}
@@ -354,18 +537,25 @@ p{
 	}
 
 	footer{
+		box-shadow: 0px -2px 2px #000;
 		background-color: #404040;
 		text-align: center;
-		font-family: 'Ubuntu', san-serif;
-		color: #3079d9;
-		box-shadow: 0px -2px 2px #000;
+
+		a{
+			font-family: 'Ubuntu', san-serif;
+			color: #3079d9;
+		}
+
+		a:hover{
+			color: #b3d92b;
+		}
 
 		span{
 			color: #b3d92b;
 		}
-		@include atMedia(xs) {height: 25px; line-height: 25px; font-size: 0.85em;}
-		@include atMedia(s) {height: 30px; line-height: 30px; font-size: 1em;}
-		@include atMedia(m) {height: 35px; line-height: 35px; width: 970px; padding: 0 15px; margin: 0 auto; font-size: 1.15em;}
+		@include atMedia(xs) {height: 25px; line-height: 25px; font-size: 1.15em;}
+		@include atMedia(s) {height: 30px; line-height: 30px; font-size: 1.2em;}
+		@include atMedia(m) {height: 35px; line-height: 35px; width: 970px; padding: 0 15px; margin: 0 auto; font-size: 1.2em;}
 	}
 
 }
