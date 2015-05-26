@@ -14,6 +14,7 @@ var opts = {
     scripts: './js',
     styles: './styles',
     media: './media',
+    dist: './dist'
   },
   lint: {
     paths: [
@@ -93,7 +94,7 @@ gulp.task('app:images', gulpSync.sync(['app:any-images','app:svg']), function(){
 
 gulp.task('app:any-images', function(){
   //add image min here
-  return gulp.src(opts.paths.media + '/**/*.{svg, png, jpg, gif}')
+  return gulp.src(opts.paths.media + '/**/*')
     .pipe(plugins.imagemin({
       progressive: true,
       multipass: true,
@@ -115,7 +116,7 @@ gulp.task('app:svg', function() {
 
   return plugins.iconify({
     src: opts.paths.media + '/svg/**/*.svg',
-    pngOutput: opts.paths.media + '/images',
+    pngOutput: opts.paths.media + '/images/generated',
     scssOutput: opts.paths.styles + '/iconify/svg',
     cssOutput: opts.paths.styles + '/iconify/css',
     styleTemplate: opts.paths.media + '/svg/icon-gen.template',
