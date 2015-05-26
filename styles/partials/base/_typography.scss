@@ -1,0 +1,68 @@
+/***********************************************************************************************
+*
+* Typography Index
+*
+************************************************************************************************/
+html,body{
+	font-size: $base-size;
+  font-family: $body-font;
+}
+h1, h2, h3, h4, h5, h6 {
+  /* fonts */
+  font-family: $title-font;
+  text-transform: capitalize;
+}
+
+h1 {
+
+  @include verticalRhythmProps($h1-font-size);
+  /* color */
+  color: $h1-color;
+  /* breakpoint */
+  @include h1-breakpoints;
+}
+
+h2 {
+
+  @include verticalRhythmProps($h2-font-size);
+  /* color */
+  /* breakpoint */
+  @include h2-breakpoints;
+}
+
+h3 {
+
+  @include verticalRhythmProps($h3-font-size);
+  /* color */
+  /* breakpoint */
+  @include h3-breakpoints;
+}
+
+h4 {
+
+  @include verticalRhythmProps($h4-font-size);
+  /* color */
+  /* breakpoint */
+  @include h4-breakpoints;
+}
+
+h5 {
+
+  @include verticalRhythmProps($h5-font-size);
+  /* color */
+  /* breakpoint */
+  @include h5-breakpoints;
+}
+
+h6 {
+  @include verticalRhythmProps($h6-font-size);
+  /* color */
+  /* breakpoint */
+  @include h6-breakpoints;
+}
+
+p {
+  @include verticalRhythmProps($body-font-size);
+  /* breakpoints */
+  @include body-breakpoints;
+}

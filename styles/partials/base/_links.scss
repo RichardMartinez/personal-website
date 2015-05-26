@@ -1,0 +1,25 @@
+/***********************************************************************************************
+*
+* Links Index
+*
+************************************************************************************************/
+
+.list--main-nav a:link, .list--main-nav a:visited {
+	text-transform: uppercase;
+	color: $dark-blue-purple;
+	text-decoration: none;
+}
+
+.list--main-nav a:hover, .list--main-nav a:active {
+	text-decoration: underline;
+	color: $medium-cyan;
+}
+
+.header--main__topnavlist a:link, .header--main__topnavlist a:visited{
+	text-decoration: none;
+	color: $white;
+}
+
+.header--main__topnavlist a:hover, .header--main__topnavlist a:active{
+	text-decoration: underline;
+}

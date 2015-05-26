@@ -1,0 +1,46 @@
+/***********************************************************************************************
+*
+* Footer Index
+*
+************************************************************************************************/
+/*---------- Start Header Block -----------*/
+.footer, %footer{
+  @include box(0);
+}
+/*---------- End Header Block -----------*/
+.footer--main{
+  /* box model */
+  width: 100%;
+}
+.box--footer-bottom-container{
+  /* block reference */
+  @extend %box;
+  width: 100%;
+  background: $dark-blue-purple;
+}
+
+.box--footer-bottom-content{
+  /* block reference */
+  @extend %box;
+  @include container($max);
+  color: $white;
+  text-align: center;
+  padding: 27px 10px 32px 10px;
+}
+
+.box--footer-bottom-content a:link, .box--footer-bottom-content a:visited{
+	text-decoration: none;
+	color: $white;
+}
+
+.box--footer-bottom-content a:active, .box--footer-bottom-content a:hover{
+	text-decoration: underline;
+	color: $white;
+}
+
+.box--footer-bottom-content img {
+	display: inline-block;
+	height: 43px;
+	width: 263px;
+	border: none;
+}

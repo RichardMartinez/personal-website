@@ -1,0 +1,11 @@
+/* a clear fix that uses the before pseudo...*/
+.cf-more, %cf-more{
+  &:before{
+    content: " ";
+    display: table;
+  }
+  @extend clearfix;
+  &:after{
+    clear: both;
+  }
+}

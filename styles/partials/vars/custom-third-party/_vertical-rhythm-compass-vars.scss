@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Vertical Rhythm Variables
+   ========================================================================== */
+
+/*
+ * A good primer on Compass Vertical Rhythm. Read this before you get lost:
+ * http://atendesigngroup.com/blog/vertical-rhythm-compass
+ */
+
+//compass vertical rhythm variables
+$base-font-size: ms(0);
+$base-line-height: $base-font-size * $line-height-multiple;
+$rhythm-unit: "rem";
+$rem-with-px-fallback: false;
+$default-rhythm-border-width: $common-border-size;
+$default-rhythm-border-style: solid $grey;
+$round-to-nearest-half-line: false;
+//This must be defined in order to use rem units in adjust-font-size-to
+$min-line-padding: 0;
+
+//define base, if you don't plan to use ems, because it uses ems by default
+//print it out to see what number is being used in some mixin caculations
+$base-leader: convert-length($base-line-height - $base-font-size, $rhythm-unit, $base-font-size);
+//the same goes for base-half-leader (assuming you plan to use it)
+$base-half-leader: $base-leader/2;

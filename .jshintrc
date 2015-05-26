@@ -1,0 +1,23 @@
+{
+  "globals": {
+    "browser": true,
+    "node": true,
+    "browserify": true,
+    "jquery": true,
+    "console": true
+  },
+  "unused": true,
+  "globalstrict": true,
+  "camelcase": true,
+  "curly": true,
+  "forin": true,
+  "maxdepth": 3,
+  "eqeqeq": true,
+  "latedef": true,
+  "noarg": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "nonbsp": true,
+  "supernew": true
+}
