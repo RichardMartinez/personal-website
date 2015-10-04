@@ -35,3 +35,23 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Additional Stuff #
+####################
+.idea
+.sass-cache/
+.tmp/
+*.css.map
+*.sublime-workspace
+*.ruby-version
+node_modules/
+temp/
+bower_components/
+sitemap.xml
+sitemap.xml.gz
+.idea
+iconify/
+.gitignore.original
+public/readme.html
+public/wp-content/uploads
+tests/reports
