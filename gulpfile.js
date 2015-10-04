@@ -24,7 +24,7 @@ Global Variables
 var opts = {
   server: {
     //add/change a shell variable for the host value here, if you want.
-    host: process.env.VAR_ORM_HOST || 'localhost',
+    host: process.env.VAR_PERSONAL_SITE_HOST || 'localhost',
     port: 4567
   },
   paths: {
@@ -56,8 +56,12 @@ var opts = {
       task: ['app:js']  
     }],
     copy: [{
-        "src": "./src/media/other/**/*.ico",
-        "dest": "./public/media/other"
+        src: "./src/media/other/**",
+        dest: "./public/media/other"
+      },
+      {
+        src: './src/pages/**/*.html',
+        dest: './public/pages'
       }],
     delete: [{
       "src": [
@@ -164,56 +168,56 @@ JS Task(s)
 Image(s) Task(s)
 \*====================================================*/
 
-// gulp.task('app:images', gulpSync.sync(['app:any-images']), function() {
-//   gulpif(!opts.switches.isProd, plugins.connect.reload());
-// });
+gulp.task('app:images', gulpSync.sync(['app:any-images, app:copy']), function() {
+  gulpif(!opts.switches.isProd, plugins.connect.reload());
+});
 
-// gulp.task('app:any-images', ['app:copy'], function() {
+gulp.task('app:any-images', function() {
 
-//   var tasks = [];
+  var tasks = [];
 
-//   opts.paths.compile.media.forEach(function(compile) {
+  opts.paths.compile.media.forEach(function(compile) {
 
-//     //define current source for multiuse
-//     var currentSrc = compile.src + '/**/*.{svg,png,jpg,gif}';
+    //define current source for multiuse
+    var currentSrc = compile.src + '/**/*.{svg,png,jpg,gif}';
 
-//     tasks.push(gulp.src(currentSrc)
-//       //remove files/directories from dest that are no longer(not in) in src, before acting on files from source (for production only).
-//       .pipe(gulpif(!opts.switches.isProd, plugins.cleanDest(compile.dest), del(compile.dest + '/*')))
+    tasks.push(gulp.src(currentSrc)
+      //remove files/directories from dest that are no longer(not in) in src, before acting on files from source (for production only).
+      .pipe(gulpif(!opts.switches.isProd, plugins.cleanDest(compile.dest), del(compile.dest + '/*')))
 
-//       //Filter in only files that are newer, except for production build
-//       //If only some files compile, we will be missing some.
-//       .pipe(gulpif(!opts.switches.isProd, plugins.changed(compile.dest), gulp.src(currentSrc)))
-//       //log each file name
-//       .pipe(plugins.debug({
-//         title: compile.src
-//       }))
+      //Filter in only files that are newer, except for production build
+      //If only some files compile, we will be missing some.
+      .pipe(gulpif(!opts.switches.isProd, plugins.changed(compile.dest), gulp.src(currentSrc)))
+      //log each file name
+      .pipe(plugins.debug({
+        title: compile.src
+      }))
 
-//       .pipe(plugins.imagemin({
-//         progressive: true,
-//         multipass: true,
-//         svgoPlugins: [{
-//             removeEmptyAttrs: true
-//           }, {
-//             removeViewBox: false
-//           }, {
-//             cleanupIDs: false
-//           }, {
-//             convertPathData: true
-//           }, {
-//             removeXMLProcInst: false
-//           }
-//           //see https://github.com/svg/svgo/tree/master/plugins for more options
-//         ],
-//         //for additional imagemin plugins put them here
-//         use: []
-//       }))
-//       .pipe(gulp.dest(compile.dest))
-//     );
-//   });
+      .pipe(plugins.imagemin({
+        progressive: true,
+        multipass: true,
+        svgoPlugins: [{
+            removeEmptyAttrs: true
+          }, {
+            removeViewBox: false
+          }, {
+            cleanupIDs: false
+          }, {
+            convertPathData: true
+          }, {
+            removeXMLProcInst: false
+          }
+          //see https://github.com/svg/svgo/tree/master/plugins for more options
+        ],
+        //for additional imagemin plugins put them here
+        use: []
+      }))
+      .pipe(gulp.dest(compile.dest))
+    );
+  });
 
-//   return merge(tasks);
-// });
+  return merge(tasks);
+});
 
 /*====================================================*\
 Style Task(s)
@@ -332,17 +336,17 @@ Watch Task(s)
 \*================================================*/
 gulp.task('dev:watch', function() {
 
-  opts.paths.compile.media.forEach(function(compile) {
-    gulp.watch(compile.src + '/**', ['app:images']);
-  });
+  // opts.paths.compile.media.forEach(function(compile) {
+  //   gulp.watch(compile.src + '/**', ['app:images']);
+  // });
 
   opts.paths.compile.styles.forEach(function(compile) {
     gulp.watch([compile.src + '/**/*.scss', compile.src + '/*.scss'], ['app:styles']);
   });
   //watches for php and js
-  opts.paths.watch.forEach(function(watch) {
-    gulp.watch(watch.glob, watch.task);
-  });
+  // opts.paths.watch.forEach(function(watch) {
+  //   gulp.watch(watch.glob, watch.task);
+  // });
 });
 
 
@@ -373,7 +377,7 @@ Build Task(s)
 GROUP DEFAULT Task(S)
 \*====================================================*/
 
-gulp.task('default', [/*'app:delete', 'app:js', 'app:images', */'app:styles'/*, 'app:inject'*/, 'app:server']);
+gulp.task('default', [/*'app:delete', 'app:js', */'app:images', 'app:styles'/*, 'app:inject'*/, 'app:server']);
 
 //set up sync to make one task dependent on the other
 gulp.task('withwatch', gulpSync.sync(['default', 'dev:watch']));
