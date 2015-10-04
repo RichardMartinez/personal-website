@@ -50,8 +50,4 @@ bower_components/
 sitemap.xml
 sitemap.xml.gz
 .idea
-iconify/
 .gitignore.original
-public/readme.html
-public/wp-content/uploads
-tests/reports
