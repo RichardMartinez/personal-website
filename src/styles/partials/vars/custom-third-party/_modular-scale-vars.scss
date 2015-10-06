@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Modular Scale Variables
+   ========================================================================== */
+
+/*
+ * Modular Scale
+ *
+ * Instead of setting arbitrary values for font sizes, padding, widths, etc.
+ * we can use values up and down our modular scale which have meaning
+ * in relation to one another.
+ *
+ * Don't be scared. Start here: http://thesassway.com/projects/modular-scale
+ *
+ */
+
+ /*base-size chaned to ms-size, and ratio changed to ms-ratio (for a new version of ms)*/
+
+ /* Set MS Values------------------------------------------------------------ */
+
+//Based on the style guide 1rem should be equivalent to the default font size: 16px.
+ $ms-base: 1rem 1.75rem;
+ $ms-ratio: $minor-second;
+
+ //Styleguide
+ // $ms-base: 1rem 1.75rem;
+ // $ms-ratio: $minor-second;
+
+/* Debug------------------------------------------------------------ */
+
+
+/*
+ * This will output the modular scale values when you compile. Comment out to hide.
+ */
+ //@debug ms-list(-35, 35, 1rem 1.75rem, $minor-second);
+
+ // Good scale for more options
+ //@debug ms-list(-6, 30, 1rem 1.75rem, $minor-second);
+
+ // Good scale for whole number values and a lot of options
+ // @debug ms-list(-6, 30, 1rem 12rem, $octave);
+ /*
+ *
+ */
+
+
+ /* QL pattern library sizes */
+// $h1-font-size-max: ms(34); //~48px
+// $h2-font-size-max: ms(21); //~32px
+// $h3-font-size-max: ms(17); //~28px
+// $h4-font-size-max: ms(14); //~25px
+// $h5-font-size-max: ms(10); //~22px
+// $h6-font-size-max: ms(6); //~19px
+// $body-font-size-max: ms(0); //~16px
+
+//heading font size(s) max
+//these values are equivalent to their modular scale argument value
+
+//H1:       2.99563rem  = 47.93009px
+//H2:       1.99111rem  = 31.85778px
+//H3:       1.75rem     = 28px
+//H4:       1.57109rem  = 25.13744px
+//H5:       1.38084rem  = 22.09345px
+//H6:       1.21363rem  = 19.41807px
+//bodyFont: 1rem        = 16px
+
+/* QL Pattern Library Scale (based on: $ms-base: 1rem 1.75rem; $ms-ratio: $minor-second;) */

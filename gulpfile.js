@@ -25,7 +25,7 @@ var opts = {
   server: {
     //add/change a shell variable for the host value here, if you want.
     host: process.env.VAR_PERSONAL_SITE_HOST || 'localhost',
-    port: 4567
+    port: 1357
   },
   paths: {
     app: "./",
@@ -50,18 +50,26 @@ var opts = {
       glob: "./public/**/*.php",
       task: ['dev:reload']
     }, {   
-      glob: [    "./src/js/**/*.js",
+      glob: ["./src/js/**/*.js",
         "./src/js/**/*.jsx",     "./src/js/*.js"   
       ],
       task: ['app:js']  
     }],
     copy: [{
-        src: "./src/media/other/**",
+        src:  "./src/media/other/**",
         dest: "./public/media/other"
       },
       {
-        src: './src/pages/**/*.html',
+        src:  './src/pages/**/*.html',
         dest: './public/pages'
+      },
+      {
+        src:  './src/index.html',
+        dest: './public'
+      },
+      {
+        src:  './src/bootstrap/css/bootstrap.min.css',
+        dest: './public/styles'
       }],
     delete: [{
       "src": [
@@ -168,7 +176,7 @@ JS Task(s)
 Image(s) Task(s)
 \*====================================================*/
 
-gulp.task('app:images', gulpSync.sync(['app:any-images, app:copy']), function() {
+gulp.task('app:images', gulpSync.sync(['app:any-images', 'app:copy']), function() {
   gulpif(!opts.switches.isProd, plugins.connect.reload());
 });
 

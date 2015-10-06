@@ -1,0 +1,43 @@
+/***********************************************************************************************
+*
+* Boxes Index
+*
+************************************************************************************************/
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body{
+  @include box($common-padding);
+
+  @include breakpoint($max){
+    padding: 0;
+  }
+}
+/*---------- Start Box Block -----------*/
+.box, %box{
+  @include box(0);
+}
+/*---------- End Box Block -----------*/
+.box--main-container{
+  /* block reference */
+  @extend %box;
+}
+.box--main-content{
+  /* block reference */
+  @extend %box;
+  @include container($max);
+  padding-bottom: 15px;
+}
+.box--nav-container{
+  /* block reference */
+  @extend %box;
+  /* box model */
+  width: 100%;
+  /* color */
+  border-top: 3px solid $gray;
+  border-bottom: 6px solid $dark-blue-purple;
+}

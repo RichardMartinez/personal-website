@@ -1,0 +1,87 @@
+/* Misc Elements--------------------------------------------------------- */
+
+/* common sizes */
+//arbitrary
+
+$single-unit: 0.0625rem; 			//1px
+$common-size-micro: 0.125rem;	//2px
+$common-size-mini: 0.3125rem;		//5px
+$common-size-sm: 0.5rem;			//8px
+$common-size: 0.625rem; 					//10px
+$common-size-md: 0.9375rem;				//15px
+$common-size-lg: 1.250rem;				//20px
+$common-size-max: 1.875rem;				//30px
+
+$common-size-base-line-height: $base-line-height-rems;
+
+/*common padding*/
+//based on line height
+$common-padding-based-on-line-height: $common-size-base-line-height;
+$common-padding-based-on-line-height-half: $common-padding-based-on-line-height / 2;
+$common-padding-based-on-line-height-1point5: $common-padding-based-on-line-height * 1.5;
+$common-padding-based-on-line-height-2: $common-padding-based-on-line-height * 2;
+$common-padding-based-on-line-height-2point5: $common-padding-based-on-line-height * 2.5;
+
+//arbitrary
+$common-padding-mini: $common-size-mini;
+$common-padding-sm: $common-size-sm;
+$common-padding: $common-size;
+$common-padding-md: $common-size-md;
+$common-padding-lg: $common-size-lg;
+$common-padding-max: $common-size-max;
+
+/*common margin*/
+
+$common-margin-mini: $common-size-mini;
+$common-margin-sm: $common-size-sm;
+$common-margin: $common-size;
+$common-margin-md: $common-size-md;
+$common-margin-lg: $common-size-lg;
+$common-margin-max: $common-size-max;
+
+/*element variables*/
+
+/*header */
+$header-height: $base-line-height-rems * 4;
+$header-height-section-third: $header-height / 3;
+$header-mobile-menu-margin: $header-height-section-third;
+$header-height-lg: $base-line-height-rems * 5;
+
+
+/*footer*/
+
+
+
+/* border */
+$common-border-size: $single-unit;
+$common-border-size-lg: $common-size-micro;
+$common-border-radius: $common-size-micro;
+
+$span-icons-height: $common-size-mini;
+
+$calendar-cell-padding: $common-padding-mini $common-padding;
+/*input variables used by the select variable and input-padding*/
+$input-padding-horizontal: $common-padding;
+$input-padding-vertical: $common-padding-sm;
+$input-padding: $input-padding-horizontal $input-padding-vertical;
+$form-field-padding: $common-padding-based-on-line-height-half;
+$input-currency-symbol-padding: $form-field-padding + $common-border-size*2;
+$common-form-field-max-width: $sm-md;
+
+
+
+/* select element */
+$select-height: $body-line-height + ($form-field-padding * 2) + ($common-border-size * 2);
+$select-height-md: $body-line-height-md + ($form-field-padding * 2) + ($common-border-size * 2);
+$select-height-max: $body-line-height-max + ($form-field-padding * 2) + ($common-border-size * 2);
+
+
+$indent: $common-size-sm;
+$table-cell-padding-sm: $common-size;
+$table-cell-padding-md: $common-size-md;
+
+$main-nav-lg: $max;
+//not to be used as media query
+//$largest-size: 98rem;
+
+/*element rhythm*/

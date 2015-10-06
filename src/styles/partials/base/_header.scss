@@ -1,0 +1,53 @@
+/***********************************************************************************************
+*
+* Header Index
+*
+************************************************************************************************/
+/*---------- Start Header Block -----------*/
+.header, %header{
+  @include box(0);
+}
+/*---------- End Header Block -----------*/
+.header--main{
+  /* box model */
+  width: 100%;
+}
+.header--main__content-container{
+  /* box model */
+	overflow: auto;
+  width: 100%;
+}
+.header--main__topnav {
+	overflow: auto;
+  	width: 100%;
+  	background: $dark-blue-purple;
+}
+.header--main__topnav-container{
+  @include container($max);
+}
+
+.header--main__search{
+@include span(5 of 12);
+@extend %clearfix;
+}
+.header--main__topnavlist{
+@include span(7 of 12);
+@extend %clearfix;
+}
+.header--main__content{
+  /* box model */
+  @include container($max);
+  padding: 10px 0;
+}
+.header--main__brand{
+/* block reference */
+/* box model */
+@include span(5 of 12);
+@extend %clearfix;
+}
+.header--main__action{
+/* block reference */
+/* box model */
+@include span(7 of 12);
+@extend %clearfix;
+}

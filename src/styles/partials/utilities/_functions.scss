@@ -1,0 +1,123 @@
+/*
+*From String To Number
+*Currently used to set a string with unit value, to a number with unit value.
+*It could potentially be use to check unit type.
+*/
+@function stringUnitValueToNumber($numberString, $unit) {
+  $strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
+  $units:   1px  1cm  1mm  1%  1ch  1pica  1in  1em  1rem  1pt  1pc  1ex  1vw  1vh  1vmin  1vmax;
+  $index: index($strings, $unit);
+
+  @if not $index {
+    @warn "Unknown unit '#{$unit}'.";
+    @return false;
+  }
+
+  @return $numberString * nth($units, $index);
+}
+
+/*To String
+*convert any value to a string
+*/
+
+@function toString($value){
+  @return inspect($value);
+}
+/*Split Unit And Value
+*return a list of the unit and the value
+*to return just a number set $justNumber to true
+*to return just a unit type set $justUnits to true
+*/
+
+@function splitUnitAndValue($unitValue, $justNumber: false, $justUnits: false){
+
+  $unitValueList: toList($unitValue);
+  $theNumbers: $unitValue / ($unitValue * 0 + 1);
+  //complicated way of doing what the unit function already does
+  // $stringNumberValue: toString($theNumbers);
+  // $stringNumberLength: str-length($stringNumberValue);
+  // $strinUnitValue: toString($unitValue);
+  // $strinUnitLength: str-length($strinUnitValue);
+  // $units: str-slice($strinUnitValue, $stringNumberLength + 1, $strinUnitLength);
+  $theUnits: unit($unitValue);
+  @if $justNumber == true{
+    @return $theNumbers;
+  }
+  @else if $justUnits == true{
+    @return $theUnits;
+  }
+  @else{
+    @return ($theNumbers, $theUnits);
+  }
+}
+/*Rems To Pixels
+*Convert a REM unit value to a pixel unit value
+*base size is the value that rems are based off of
+*if you have a base size variable use that as the baseSize argument
+*If you don't want to return a number (with unit value), and instead want to return a string(with unit value), change boolean value of $typeNumber to false;
+*/
+
+@function remsToPixels($remValue, $baseSize: if(variable-exists(base-size) or global-variable-exists(base-size), $base-size, 16px), $typeNumber: true){
+  $baseSizeMap: splitUnitAndValue($baseSize);
+  $remValueMap: splitUnitAndValue($remValue);
+  $pixelValueString: unquote((nth($remValueMap, 1) * nth($baseSizeMap, 1)) + "px");
+  $pixelValueNumber: stringUnitValueToNumber(nth($remValueMap, 1) * nth($baseSizeMap, 1), "px");
+  @if nth($remValueMap, 2) != rem{
+    @error "The remsToPixels function expects a value using rem units as the first argument, and you are currently using " + nth($remValueMap, 2) + " units.";
+  }
+  @else if nth($baseSizeMap, 2) != px{
+    @error "The remsToPixels function expects a value using px units as the second argument, and you are currently using " + nth($baseSizeMap, 2) + " units.";
+  }
+  @else if $typeNumber == false{
+        @return $pixelValueString;
+  }
+  @else{
+    @return $pixelValueNumber;
+  }
+}
+
+@function pixelsToRems($pixelValue, $baseSize: if(variable-exists(base-size) or global-variable-exists(base-size), $base-size, 16px), $typeNumber: true){
+  $baseSizeMap: splitUnitAndValue($baseSize);
+  $pxValueMap: splitUnitAndValue($pixelValue);
+  $remValueString: unquote((nth($pxValueMap, 1) / nth($baseSizeMap, 1)) + "rem");
+  $remValueNumber: stringUnitValueToNumber(nth($pxValueMap, 1) / nth($baseSizeMap, 1), "rem");
+  @if nth($pxValueMap, 2) != px{
+    @error "The pxToPixels function expects a value using px units as the first argument, and you are currently using " + nth($pxValueMap, 2) + " units.";
+  }
+  @else if nth($baseSizeMap, 2) != px{
+    @error "The pxToPixels function expects a value using px units as the second argument, and you are currently using " + nth($baseSizeMap, 2) + " units.";
+  }
+  @else if $typeNumber == false{
+        @return $remValueString;
+  }
+  @else{
+    @return $remValueNumber;
+  }
+}
+
+
+/*
+* Needs work, to be able to loop multiple maps.
+*/
+@function debugText($map, $andPixels: true){
+  $newMap: ();
+
+  @each $propertyName, $textSize in $map {
+
+      @if type-of($textSize) == number{
+
+        @if $andPixels == true{
+          $text-size-in-px: splitUnitAndValue($textSize, true) * $base-size;
+
+          $newMap: append($newMap, $propertyName + ": " +  $textSize + " = " + $text-size-in-px);
+        }
+        @else{
+          $newMap: append($newMap, $propertyName + ": " + $textSize);
+        }
+      }
+      @else{
+        @error "debugText with $andPixels on is expecting a number value in a map. It errored on a type value of " + type-of($textSize) + ".";
+      }
+  }
+  @return $newMap;
+}
