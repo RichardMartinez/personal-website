@@ -1,11 +1,32 @@
-/* ==========================================================================
-   Breakpoints Variables
-   ========================================================================== */
-    //$xs is not to be used as a breakpoint for smallest containers
-		$xs: 320px;
-    $sm: 480px;
-    $sm-md: 500px;
-    $md: 768px;
-    $max: 972px;
+/***********************************************************************************************
+*
+* Breakpoints Variables
+** Media Types
+** Sizes
+*
+************************************************************************************************/
 
-    //defined text breakpoints here, once you figure out all the text sizes.
+/*========================================
+Media Types
+========================================*/
+$screen: screen;
+$print: print;
+
+/*========================================
+Sizes
+========================================*/
+//only use $start for print (to hide things by default)
+$start: 0;
+//$xs is not to be used as a breakpoint for smallest containers
+$xs: 320px;
+$xs-md: 420px;
+$sm: 480px;
+$sm-md: 500px;
+$sm-lg: 650px;
+$sm-xl: 692px;
+$md: 768px;
+$md-lg: 800px;
+$md-xl: 850px;
+$md-xxl: 875px;
+$lg: 900px;
+$max: 972px;

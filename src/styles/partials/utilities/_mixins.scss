@@ -15,7 +15,6 @@
   $leadOrTrailLinesUsed: 1,
   $debugVerticalRhythm: false
   ) {
-
   $new-line-height: if($differentLineHeight != $theFontSize, lines-for-font-size($differentLineHeight) * $base-line-height, lines-for-font-size($theFontSize) * $base-line-height);
   $lead-or-trail-num: splitUnitAndValue($base-font-size, true);
   //font size and line height
@@ -31,13 +30,16 @@
       @include debug-vertical-alignment;
     }
     @if $top-bottom-both == top {
-      @include rhythm($leader: 0, $padding-leader: $leadOrTrailLinesUsed, $padding-trailer: 0, $trailer: 0, $font-size: $base-font-size);
+      @include padding-leader($lines: $leadOrTrailLinesUsed, $font-size: $base-font-size);
+      @include padding-trailer($lines: 0, $font-size: $base-font-size);
     }
     @else if $top-bottom-both == both {
-      @include rhythm($leader: 0, $padding-leader: $leadOrTrailLinesUsed, $padding-trailer: $padding-leader, $trailer: 0, $font-size: $base-font-size);
+      @include padding-leader($lines: $leadOrTrailLinesUsed, $font-size: $base-font-size);
+      @include padding-trailer($lines: $leadOrTrailLinesUsed, $font-size: $base-font-size);
     }
     @else if $top-bottom-both == bottom {
-      @include rhythm($leader: 0, $padding-leader: 0, $padding-trailer: $leadOrTrailLinesUsed, $trailer: 0, $font-size: $base-font-size);
+      @include padding-leader($lines: 0, $font-size: $base-font-size);
+      @include padding-trailer($lines: $leadOrTrailLinesUsed, $font-size: $base-font-size);
     }
   }
   @else {
@@ -45,13 +47,13 @@
       @include debug-vertical-alignment;
     }
     @if $top-bottom-both == top {
-      @include rhythm($leader: $leadOrTrailLinesUsed, $padding-leader: 0, $padding-trailer: 0, $trailer: 0, $font-size: $base-font-size);
+      @include rhythm-margins($leader: $leadOrTrailLinesUsed, $trailer: 0, $font-size: $base-font-size);
     }
     @else if $top-bottom-both == both {
-      @include rhythm($leader: $leadOrTrailLinesUsed, $padding-leader: 0, $padding-trailer: 0, $trailer: $leadOrTrailLinesUsed, $font-size: $base-font-size);
+      @include rhythm-margins($leader: $leadOrTrailLinesUsed, $trailer: $leader, $font-size: $base-font-size);
     }
     @else if $top-bottom-both == bottom {
-      @include rhythm($leader: 0 , $padding-leader: 0, $padding-trailer: 0, $trailer: $leadOrTrailLinesUsed, $font-size: $base-font-size);
+      @include rhythm-margins($leader: 0, $trailer: $leadOrTrailLinesUsed, $font-size: $base-font-size);
     }
   }
 }
@@ -73,7 +75,7 @@
     padding-bottom: 0;
   }
   @else {
-    @error "The $verticalPadding argument, most be one of the following: top, bottom, or both.";
+    @error "The $verticalPadding argument, must be one of the following: top, bottom, or both.";
   }
   //reset vertical margins
   @if $verticalMargins == top {
@@ -87,7 +89,7 @@
     margin-bottom: 0;
   }
   @else {
-    @error "The $verticalMargins argument, most be one of the following: top, bottom, or both.";
+    @error "The $verticalMargins argument, must be one of the following: top, bottom, or both.";
   }
   //set a new line height
   @if $lineHeight != null {
@@ -107,6 +109,7 @@ Float
 Clearfix
 * fix float box issues
 */
+
 @mixin cf {
   &:before,
   &:after {
@@ -122,56 +125,58 @@ Clearfix
  * Placeholder image
  * This can be used to add a placeholder image of any size, background color, text color, and placeholder text, as a css background
  */
-@mixin placeholderImg($width: 500, $height: $width, $bgColor: $grey, $color: $black, $placholder: null){
-  @if $placeholder != null{
+@mixin placeholderImg($width: 500, $height: $width, $bgColor: $grey, $color: $black, $placeholder: null) {
+  @if $placeholder != null {
     background: url(http://placehold.it/#{$width}x#{$height}/#{$bgColor}/#{$color}&text=#{$placeholder});
   }
-  @else{
+  @else {
     background: url(http://placehold.it/#{$width}x#{$height}/#{$bgColor}/#{$color});
   }
   background-size: 100% 100%;
 }
 
 /*
- * Placeholder to make indent text
- */
-@mixin indentText($indentAmount: $indent){
-  text-indent: $indent;
-}
-/*
 * Make Horizontal
 * Position block elements horizontally without floating
 */
 @mixin makeHorizontal {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
 }
+
 /*
  * No Horizontal Center
  * This removes horizontal centering
  */
-@mixin noHorizontalCenter($marginLeft: 0, $marginRight: 0){
+@mixin noHorizontalCenter($marginLeft: 0, $marginRight: 0) {
   margin-left: $marginLeft;
   margin-right: $marginRight;
 }
+
 /*
  * Horizontal Center
  * This adds horizontal centering for block level elements
  */
-@mixin horizontalCenter{
+@mixin horizontalCenter {
   margin-left: auto;
   margin-right: auto;
 }
+
 /*
  * Button Colors
  * Use this mixin to update the scales class button colors.
  * The scales default is the cyan button.
  * This defaults to the purple button.
  */
-@mixin buttonColors($bg: $dark-purple, $color: $white){
+
+@mixin buttonColors($bg: $dark-purple, $color: $white, $hoverBg: $purple) {
   background-color: $bg;
   color: $color;
+  &:hover, &:active {
+    background-color: $hoverBg;
+    color: $color;
+  }
 }
 
 /*
@@ -191,89 +196,239 @@ Clearfix
 }
 
 /*
+* Text Anchors Mixin
+* The default values for this mixin are used to white link that live in a text block, and are on a colored background.
+* This mixin can be used to set text color and text decoration.
+*/
+@mixin link($textColor: if(variable-exists(medium-cyan), $white, #FFFFFF), $textDecoration: underline, $hover: $light-grey, $activeTextDecoration: $textDecoration) {
+  &:link, &:visited {
+    /* color */
+    color: $textColor;
+    /* font */
+    text-decoration: $textDecoration;
+  }
+  &:hover, &:active {
+    /* color */
+    color: $hover;
+    /* font */
+    text-decoration: $activeTextDecoration;
+  }
+}
+
+/* Visibility Toggle Mixin */
+@mixin visible {
+  /* box model */
+  display: none;
+  /* breakpoint */
+  @include breakpoint($screen $md-lg) {
+    //this make the container fit to the list items
+    display: table !important;
+  }
+}
+
+/* Submenu Dropdown Mixin */
+@mixin submenu-nav {
+  /* box model */
+  position: absolute;
+  left: 0;
+  display: none;
+  padding: 0;
+  list-style: none;
+  z-index: 9;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  /* color */
+  background: $white;
+}
+
+/*
+* Fake overlapping image for full width container
+* @para $mainBgColor - This is the main background color that should contrast the surrounding background colors.
+* @para $hideColor - This is the background color that should be the same as the background colors of the surrounding containers, to make it seem as if it is part of the surrounding backgrounds.
+* @para $overlapPaddingHeight - This is the distance from the top of the container that should appear to blend with the surrounding containers.
+* @para $middleHeight - This is the height of the background area that should contrast the surrounding areas.
+* Keep in mind that image should probably be the same size as $overlapPaddingHeight + $middleHeight + $overlapPaddingHeight
+*/
+@mixin fakeOverlapImageContainer($mainBgColor, $hideColor, $overlapPaddingHeight, $middleHeight) {
+  /* box model */
+  height: auto;
+  /* background color */
+  background-color: $mainBgColor;
+  /* breakpoint */
+  @include breakpoint($screen $md) {
+    /* box model */
+    height: 100%;
+    background: linear-gradient(to bottom, $hideColor, $hideColor $overlapPaddingHeight, $mainBgColor $overlapPaddingHeight, $mainBgColor $middleHeight, $hideColor $middleHeight);
+  }
+}
+
+/*
+* Client Review Color Mixin
+* Used to create propeties for a client review section
+*/
+@mixin clientReviewColors($imgBorderColor, $linkColorHover, $linkColor: $imgBorderColor) {
+  img {
+    /* color */
+    border-color: $imgBorderColor;
+  }
+  a {
+    /* color */
+    background-color: $linkColor;
+    &:hover,
+    &:active {
+      /* color */
+      background-color: $linkColorHover;
+    }
+  }
+}
+
+/*
+* Vertical Align Block Center
+* Used to vertically align elements of unknown height
+* A prerequisite of using this mixin is to use a position other than static, on the parent of the element this is used on.
+*/
+@mixin vAlignCenterBlock($direction: right, $directionPos: 0) {
+  /* box model */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  @if $direction == left {
+    left: $directionPos;
+  }
+  @if $direction == right {
+    right: $directionPos;
+  }
+}
+
+/*
+* Reset Colors
+* This mixin should be used to reset any background and text colors for print (to black and white)
+*/
+@mixin resetPrintColors($textColor: if(variable-exists(medium-cyan), $black, #000000), $bgColor: transparent, $fill: null, $justProps: false) {
+  @if $justProps == false {
+    @include breakpoint($print $start) {
+      @if $bgColor != null {
+        /* color */
+        background-color: $bgColor;
+      }
+      @if $fill != null {
+          /* color */
+          fill: $fill;
+      }
+      @if $textColor != null {
+        /* color */
+        color: $textColor;
+        //this is to help reset a link
+        &:link {
+          color: $textColor;
+        }
+      }
+    }
+  }
+  @else {
+    @if $bgColor != null {
+      /* color */
+      background-color: $bgColor;
+    }
+    @if $fill != null {
+        /* color */
+        fill: $fill;
+    }
+    @if $textColor != null {
+      /* color */
+      color: $textColor;
+      //this is to help reset a link
+      &:link {
+        color: $textColor;
+      }
+    }
+  }
+}
+
+/*
 * Text Size Breakpoint(s) Mixins
 */
 @mixin h1-breakpoints {
-  @include breakpoint($md) {
+  @include breakpoint($screen $md) {
     @include verticalRhythmProps($h1-font-size-md);
   }
-
-  @include breakpoint($max) {
+  @include breakpoint($screen $max) {
+    @include verticalRhythmProps($h1-font-size-max);
+  }
+  @include breakpoint($print $start) {
     @include verticalRhythmProps($h1-font-size-max);
   }
 }
 
 @mixin h2-breakpoints {
-  @include breakpoint($md) {
+  @include breakpoint($screen $md) {
     @include verticalRhythmProps($h2-font-size-md);
   }
-
-  @include breakpoint($max) {
+  @include breakpoint($screen $max) {
+    @include verticalRhythmProps($h2-font-size-max);
+  }
+  @include breakpoint($print $start) {
     @include verticalRhythmProps($h2-font-size-max);
   }
 }
 
 @mixin h3-breakpoints {
-  @include breakpoint($md) {
+  @include breakpoint($screen $md) {
     @include verticalRhythmProps($h3-font-size-md);
   }
-
-  @include breakpoint($max) {
+  @include breakpoint($screen $max) {
+    @include verticalRhythmProps($h3-font-size-max);
+  }
+  @include breakpoint($print $start) {
     @include verticalRhythmProps($h3-font-size-max);
   }
 }
 
 @mixin h4-breakpoints {
-  @include breakpoint($md) {
+  @include breakpoint($screen $md) {
     @include verticalRhythmProps($h4-font-size-md);
   }
-
-  @include breakpoint($max) {
+  @include breakpoint($screen $max) {
+    @include verticalRhythmProps($h4-font-size-max);
+  }
+  @include breakpoint($print $start) {
     @include verticalRhythmProps($h4-font-size-max);
   }
 }
 
 @mixin h5-breakpoints {
-  @include breakpoint($md) {
+  @include breakpoint($screen $md) {
     @include verticalRhythmProps($h5-font-size-md);
   }
-
-  @include breakpoint($max) {
+  @include breakpoint($screen $max) {
+    @include verticalRhythmProps($h5-font-size-max);
+  }
+  @include breakpoint($print $start) {
     @include verticalRhythmProps($h5-font-size-max);
   }
 }
 
 @mixin h6-breakpoints {
-  @include breakpoint($md) {
+  @include breakpoint($screen $md) {
     @include verticalRhythmProps($h6-font-size-md);
   }
-
-  @include breakpoint($max) {
+  @include breakpoint($screen $max) {
+    @include verticalRhythmProps($h6-font-size-max);
+  }
+  @include breakpoint($print $start) {
     @include verticalRhythmProps($h6-font-size-max);
   }
 }
 
 @mixin body-breakpoints {
-  @include breakpoint($md) {
-    /* font-size: $body-font-size-md;
-    line-height: $body-line-height-md; */
-    @include verticalRhythmProps($body-font-size-md);
+  @include breakpoint($screen $md) {
+    @include verticalRhythmProps($body-font-size-md, $leadOrTrailLinesUsed: 0);
   }
-
-  @include breakpoint($max) {
-    // font-size: $body-font-size-max;
-    // line-height: $body-line-height-max;
-    @include verticalRhythmProps($body-font-size-max);
+  @include breakpoint($screen $max) {
+    @include verticalRhythmProps($body-font-size-max, $leadOrTrailLinesUsed: 0);
+  }
+  @include breakpoint($print $start) {
+    @include verticalRhythmProps($body-font-size-max, $leadOrTrailLinesUsed: 0);
   }
 }
-
-/* @mixin body-copy-rhythm-breakpoints{
-    @include breakpoint($lg){
-        margin-top: $body-rhythm-lg;
-        margin-bottom: $body-rhythm-lg;
-    }
-    @include breakpoint($max){
-        margin-top: $body-rhythm-max;
-        margin-bottom: $body-rhythm-max;
-    }
-} */

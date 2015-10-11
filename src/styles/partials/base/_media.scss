@@ -1,9 +1,12 @@
 /***********************************************************************************************
 *
-* Links Index
+* Media Index
 *
 ************************************************************************************************/
-.link--logo{
-  /* color */
-  @include link($mariner, none, $key-lime-pie);
+
+.logo{
+  /* box model */
+  //these are temp. styles as they will be replace by flexbox evnentually
+  float: left;
+  width: 10%;
 }

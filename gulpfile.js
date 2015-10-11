@@ -47,12 +47,10 @@ var opts = {
       }]
     },
     watch: [{
-      glob: "./public/**/*.php",
+      glob: "./public/**/*.html",
       task: ['dev:reload']
     }, {   
-      glob: ["./src/js/**/*.js",
-        "./src/js/**/*.jsx",     "./src/js/*.js"   
-      ],
+      glob: ["./src/js/**/*.js"],
       task: ['app:js']  
     }],
     copy: [{
@@ -89,8 +87,7 @@ var opts = {
     sourcemaps: true,
     del: false,
     isProd: (argv.prod)
-  },
-  counter: 0
+  }
 };
 
 /*====================================================*\
@@ -198,7 +195,7 @@ gulp.task('app:any-images', function() {
       .pipe(gulpif(!opts.switches.isProd, plugins.changed(compile.dest), gulp.src(currentSrc)))
       //log each file name
       .pipe(plugins.debug({
-        title: compile.src
+        title: 'Image Min. - Filepath: '
       }))
 
       .pipe(plugins.imagemin({
@@ -243,11 +240,7 @@ gulp.task('app:styles', function() {
         compass: true,
         style: 'compressed',
         //this should be a development feature only.
-        sourcemap: opts.switches.sourcemaps,
-        container: 'styles' + opts.counter
-      })
-      .on('error', function(err) {
-        console.error('Error!', err.message);
+        sourcemap: opts.switches.sourcemaps
       })
       .pipe(plugins.plumber())
       .pipe(plugins.autoprefixer({
@@ -274,6 +267,7 @@ gulp.task('app:copy', function() {
 
   opts.paths.copy.forEach(function(copy) {
     tasks.push(gulp.src(copy.src)
+      .pipe(plugins.debug({title: 'Copy - Filepath: '}))
       .pipe(gulp.dest(copy.dest)));
   });
 
@@ -344,17 +338,17 @@ Watch Task(s)
 \*================================================*/
 gulp.task('dev:watch', function() {
 
-  // opts.paths.compile.media.forEach(function(compile) {
-  //   gulp.watch(compile.src + '/**', ['app:images']);
-  // });
+  opts.paths.compile.media.forEach(function(compile) {
+    gulp.watch(compile.src + '/**', ['app:images']);
+  });
 
   opts.paths.compile.styles.forEach(function(compile) {
     gulp.watch([compile.src + '/**/*.scss', compile.src + '/*.scss'], ['app:styles']);
   });
-  //watches for php and js
-  // opts.paths.watch.forEach(function(watch) {
-  //   gulp.watch(watch.glob, watch.task);
-  // });
+  //watches html
+  opts.paths.watch.forEach(function(watch) {
+    gulp.watch(watch.glob, watch.task);
+  });
 });
 
 
@@ -369,7 +363,6 @@ JS Tests Task(s)
 Build Task(s)
 \*====================================================*/
 
-//eventually take the dev dependency directories out of the WP directory
 // gulp.task('app:clean-and-default', function() {
 //   //turn on production switch to turn off compiling only changed files
 //   opts.switches.isProd = true;
@@ -394,4 +387,4 @@ gulp.task('withwatch', gulpSync.sync(['default', 'dev:watch']));
 GROUP BUILD PROD Task
 \*====================================================*/
 
-//gulp.task('build', ['app:clean-and-default']);
+gulp.task('build', ['app:clean-and-default']);

@@ -11,7 +11,7 @@
 /*
  * Import Compass and Compass/Other plugins.
  */
-@import "compass";
+@import "compass/typography/vertical_rhythm";
 @import "modular-scale";
 @import "breakpoint";
 @import "susy";
@@ -64,11 +64,11 @@
 /*----- user defined styles -----*/
 // @import "partials/base/boxes";
 // @import "partials/base/buttons";
-// @import "partials/base/media";
+@import "partials/base/media";
 // @import "partials/base/footer";
 // @import "partials/base/forms";
 // @import "partials/base/header";
-// @import "partials/base/links";
+@import "partials/base/links";
 // @import "partials/base/lists";
 // @import "partials/base/nav";
 // @import "partials/base/shortcodes";
@@ -109,12 +109,6 @@
 		.top-navigation{
 			margin: 0 auto;
 
-			.logo{
-				display: block;
-				height: 100%;
-				float: left;
-
-			}
 			nav{
 				display: block;
 				float: left;

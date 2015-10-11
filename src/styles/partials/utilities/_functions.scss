@@ -95,6 +95,13 @@
   }
 }
 
+/*
+* Lines For Font Size Simplified
+* requires font size
+*/
+@function linesForFontSizeSimple($font-size, $base-line-height) {
+  @return ceil($font-size / $base-line-height);
+}
 
 /*
 * Needs work, to be able to loop multiple maps.

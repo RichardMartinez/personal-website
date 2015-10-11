@@ -37,7 +37,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^5.1.0",
     "gulp-rev-all": "^0.8.21",
-    "gulp-ruby-sass": "^1.0.5",
+    "gulp-ruby-sass": "^2.0.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-sync": "^0.1.4",
     "gulp-tap": "^0.1.3",
