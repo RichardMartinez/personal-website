@@ -1,7 +1,7 @@
 // gulpfile.js
 
 var argv = require('yargs').argv;
-var babelify = require("babelify");
+var babelify = require('babelify');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var del = require('del');
@@ -28,41 +28,37 @@ var opts = {
     port: 1357
   },
   paths: {
-    app: "./",
-    tests: "./spec",
+    app: './',
+    tests: './spec',
     compile: {
       styles: [{
-        src: "./src/styles",
-        dest: "./public/styles",
-        main: "main.scss"
+        src: './src/styles',
+        dest: './public/styles',
+        main: 'main.scss'
       }],
       scripts: [{
-        src: "./src/js",
-        dest: "./public/js",
-        main: "entry.js"
+        src: './src/js',
+        dest: './public/js',
+        main: 'entry.js'
       }],
       media: [{
-        src: "./src/media",
-        dest: "./public/media"
+        src: './src/media',
+        dest: './public/media'
       }]
     },
     watch: [{
-      glob: "./public/**/*.html",
+      glob: './src/components/**',
       task: ['dev:reload']
     }, {   
-      glob: ["./src/js/**/*.js"],
+      glob: ['./src/js/**/*.js'],
       task: ['app:js']  
     }],
     copy: [{
-        src:  "./src/media/other/**",
-        dest: "./public/media/other"
+        src:  './src/media/other/**',
+        dest: './public/media/other'
       },
       {
-        src:  './src/pages/**/*.html',
-        dest: './public/pages'
-      },
-      {
-        src:  './src/index.html',
+        src:  './src/components/**',
         dest: './public'
       },
       {
@@ -70,8 +66,8 @@ var opts = {
         dest: './public/styles'
       }],
     delete: [{
-      "src": [
-        "./rev-manifest.json",
+      'src': [
+        './rev-manifest.json',
         '!./public/admin/**/*.!(min).{js,css,jpeg,jpg,png,gif,svg}',
         '!./public/**/*.!(min).{js,css,jpeg,jpg,png,gif,svg}'
       ]
@@ -97,9 +93,9 @@ Server Task(s)
 gulp.task('app:server', function() {
   plugins.connect.server({
     livereload: true,
+    root: opts.paths.app,
     host: opts.server.host,
-    port: opts.server.port,
-    root: opts.paths.app
+    port: opts.server.port
   });
 
   open('http://' + opts.server.host + ':' + opts.server.port);
@@ -304,24 +300,6 @@ Delete Task(s)
 
 // });
 
-/*====================================================*\
-Inject Task(s)
-\*====================================================*/
-
-gulp.task('app:inject', ['app:inject:reload']);
-
-gulp.task('app:inject:reload', function() {
-
-    return gulp.src('./public/template-where-we-lend.php')
-    .pipe(plugins.inject(gulp.src(['./public/media/svg/wwl-map.svg']), {
-      starttag: '<!-- inject:svg -->',
-      transform: function fileContents (filePath, file) {
-        return file.contents.toString('utf8')
-      }
-    }))
-    .pipe(gulp.dest('./public/'));
-});
-
 
 /*====================================================*\
 Reload Task(s)
@@ -347,7 +325,7 @@ gulp.task('dev:watch', function() {
   });
   //watches html
   opts.paths.watch.forEach(function(watch) {
-    gulp.watch(watch.glob, watch.task);
+    gulp.watch(watch.glob, gulpSync.sync(['app:copy', watch.task]));
   });
 });
 
@@ -381,7 +359,7 @@ GROUP DEFAULT Task(S)
 gulp.task('default', [/*'app:delete', 'app:js', */'app:images', 'app:styles'/*, 'app:inject'*/, 'app:server']);
 
 //set up sync to make one task dependent on the other
-gulp.task('withwatch', gulpSync.sync(['default', 'app:inject:reload', 'dev:watch']));
+gulp.task('withwatch', gulpSync.sync(['default', 'dev:watch']));
 
 /*====================================================*\
 GROUP BUILD PROD Task

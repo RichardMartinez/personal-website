@@ -3,44 +3,25 @@
 * Footer Index
 *
 ************************************************************************************************/
-/*---------- Start Header Block -----------*/
-.footer, %footer{
-  @include box(0);
-}
-/*---------- End Header Block -----------*/
-.footer--main{
-  /* box model */
-  width: 100%;
-}
-.box--footer-bottom-container{
-  /* block reference */
-  @extend %box;
-  width: 100%;
-  background: $dark-blue-purple;
-}
 
-.box--footer-bottom-content{
-  /* block reference */
-  @extend %box;
-  @include container($max);
-  color: $white;
+.footer--main {
+  box-shadow: 0px -2px 2px #000;
+  background-color: #404040;
   text-align: center;
-  padding: 27px 10px 32px 10px;
-}
 
-.box--footer-bottom-content a:link, .box--footer-bottom-content a:visited{
-	text-decoration: none;
-	color: $white;
-}
+  a{
+    font-family: 'Ubuntu', san-serif;
+    color: #3079d9;
+  }
 
-.box--footer-bottom-content a:active, .box--footer-bottom-content a:hover{
-	text-decoration: underline;
-	color: $white;
-}
+  a:hover{
+    color: #b3d92b;
+  }
 
-.box--footer-bottom-content img {
-	display: inline-block;
-	height: 43px;
-	width: 263px;
-	border: none;
+  span{
+    color: #b3d92b;
+  }
+  @include atMedia(xs) {height: 25px; line-height: 25px; font-size: 1.15em;}
+  @include atMedia(s) {height: 30px; line-height: 30px; font-size: 1.2em;}
+  @include atMedia(m) {height: 35px; line-height: 35px; width: 970px; padding: 0 15px; margin: 0 auto; font-size: 1.2em;}
 }

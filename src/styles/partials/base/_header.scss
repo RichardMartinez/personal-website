@@ -3,51 +3,127 @@
 * Header Index
 *
 ************************************************************************************************/
-/*---------- Start Header Block -----------*/
-.header, %header{
-  @include box(0);
-}
-/*---------- End Header Block -----------*/
-.header--main{
-  /* box model */
-  width: 100%;
-}
-.header--main__content-container{
-  /* box model */
-	overflow: auto;
-  width: 100%;
-}
-.header--main__topnav {
-	overflow: auto;
-  	width: 100%;
-  	background: $dark-blue-purple;
-}
-.header--main__topnav-container{
-  @include container($max);
-}
 
-.header--main__search{
-@include span(5 of 12);
-@extend %clearfix;
-}
-.header--main__topnavlist{
-@include span(7 of 12);
-@extend %clearfix;
-}
-.header--main__content{
-  /* box model */
-  @include container($max);
-  padding: 10px 0;
-}
-.header--main__brand{
-/* block reference */
-/* box model */
-@include span(5 of 12);
-@extend %clearfix;
-}
-.header--main__action{
-/* block reference */
-/* box model */
-@include span(7 of 12);
-@extend %clearfix;
+.header--main {
+  background-color: #404040;
+  height: 55px;
+  box-sizing: content-box;
+  box-shadow: 0px 2px 2px #000;
+
+  .top-navigation{
+    margin: 0 auto;
+
+    nav{
+      display: block;
+      float: left;
+
+      a{
+        display: block;
+        float: left;
+
+        /*Starting Background Positions*/
+        .email{
+          background-image:url("../media/images/nav-icons.png");
+        }
+
+        .linkedin{
+          background-image:url("../media/images/nav-icons.png");
+
+          @include atMedia(xs) {background-position: -25px 0;}
+          @include atMedia(s) {background-position: -35px 0;}
+          @include atMedia(m) {background-position: -45px 0;}
+        }
+
+        .twitter{
+          background-image:url("../media/images/nav-icons.png");
+
+          @include atMedia(xs) {background-position: -50px 0;}
+          @include atMedia(s) {background-position: -70px 0;}
+          @include atMedia(m) {background-position: -90px 0;}
+        }
+
+        .github{
+          background-image:url("../media/images/nav-icons.png");
+
+          @include atMedia(xs) {background-position: -75px 0;}
+          @include atMedia(s) {background-position: -105px 0;}
+          @include atMedia(m) {background-position: -135px 0;}
+        }
+
+        .behance{
+          background-image:url("../media/images/nav-icons.png");
+
+          @include atMedia(xs) {background-position: -100px 0;}
+          @include atMedia(s) {background-position: -140px 0;}
+          @include atMedia(m) {background-position: -180px 0;}
+        }
+
+        .resume{
+          background-image:url("../media/images/nav-icons.png");
+
+          @include atMedia(xs) {background-position: -125px 0;}
+          @include atMedia(s) {background-position: -175px 0;}
+          @include atMedia(m) {background-position: -225px 0;}
+        }
+
+        /*Applies to all links*/
+        .email, .linkedin, .twitter, .github, .behance, .resume{
+          //link(s) changes
+          @include atMedia(xs) {height: 25px; width: 25px; background-size: 150px auto;}
+          @include atMedia(s) {height: 35px; width: 35px; background-size: 210px auto;}
+          @include atMedia(m) {height: 45px; width: 45px; background-size: 270px auto;}
+        }
+        /*Ending Background Positions*/
+        .email:hover{
+          @include atMedia(xs) {background-position: 0 -25px;}
+          @include atMedia(s) {background-position: 0 -35px;}
+          @include atMedia(m) {background-position: 0 -45px;}
+        }
+        .linkedin:hover{
+          @include atMedia(xs) {background-position: -25px -25px;}
+          @include atMedia(s) {background-position: -35px -35px;}
+          @include atMedia(m) {background-position: -45px -45px;}
+        }
+        .twitter:hover{
+          @include atMedia(xs) {background-position: -50px -25px;}
+          @include atMedia(s) {background-position: -70px -35px;}
+          @include atMedia(m) {background-position: -90px -45px;}
+        }
+
+        .github:hover{
+          @include atMedia(xs) {background-position: -75px -25px;}
+          @include atMedia(s) {background-position: -105px -35px;}
+          @include atMedia(m) {background-position: -135px -45px;}
+        }
+
+        .behance:hover{
+          @include atMedia(xs) {background-position: -100px -25px;}
+          @include atMedia(s) {background-position: -140px -35px;}
+          @include atMedia(m) {background-position: -180px -45px;}
+        }
+
+        .resume:hover{
+          @include atMedia(xs) {background-position: -125px -25px;}
+          @include atMedia(s) {background-position: -175px -35px;}
+          @include atMedia(m) {background-position: -225px -45px;}
+        }
+
+        //anchor changes
+        @include atMedia(xs) {margin: 5px 0 5px 22px;}
+        @include atMedia(s) {margin: 5px 0 5px 55px;}
+        @include atMedia(m) {margin: 5px 0 5px 83px;}
+      }
+
+    }
+
+    //.top-navigation changes
+    @include atMedia(xs) {width: 100%; padding: 0 15px; height: 35px;}
+    @include atMedia(s) {width: 100%; padding: 0 15px; height: 45px;}
+    @include atMedia(m) {width: 992px; padding: 0 15px; height: 55px;}
+  }
+
+  //header changes
+  @include atMedia(xs) {height: 35px;}
+  @include atMedia(s) {height: 45px;}
+  @include atMedia(m) {height: 55px;}
 }
