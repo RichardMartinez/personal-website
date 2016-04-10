@@ -308,19 +308,19 @@ Delete Task(s)
 Inject Task(s)
 \*====================================================*/
 
-// gulp.task('app:inject', ['app:inject:svg']);
+gulp.task('app:inject', ['app:inject:reload']);
 
-// gulp.task('app:inject:svg', function() {
+gulp.task('app:inject:reload', function() {
 
-//     return gulp.src('./public/template-where-we-lend.php')
-//     .pipe(plugins.inject(gulp.src(['./public/media/svg/wwl-map.svg']), {
-//       starttag: '<!--inject:svg -->',
-//       transform: function fileContents (filePath, file) {
-//         return file.contents.toString('utf8')
-//       }
-//     }))
-//     .pipe(gulp.dest('./public/'));
-// });
+    return gulp.src('./public/template-where-we-lend.php')
+    .pipe(plugins.inject(gulp.src(['./public/media/svg/wwl-map.svg']), {
+      starttag: '<!-- inject:svg -->',
+      transform: function fileContents (filePath, file) {
+        return file.contents.toString('utf8')
+      }
+    }))
+    .pipe(gulp.dest('./public/'));
+});
 
 
 /*====================================================*\
@@ -381,7 +381,7 @@ GROUP DEFAULT Task(S)
 gulp.task('default', [/*'app:delete', 'app:js', */'app:images', 'app:styles'/*, 'app:inject'*/, 'app:server']);
 
 //set up sync to make one task dependent on the other
-gulp.task('withwatch', gulpSync.sync(['default', 'dev:watch']));
+gulp.task('withwatch', gulpSync.sync(['default', 'app:inject:reload', 'dev:watch']));
 
 /*====================================================*\
 GROUP BUILD PROD Task

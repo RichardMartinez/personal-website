@@ -1,11 +1,24 @@
 @charset "UTF-8";
 
 /* ==========================================================================
-   ORM Website Styles
+   Personal Website
    ========================================================================== */
 /*
  * Don't write any css in here, just import your partials.
  * This will compile to css/style.css
+ */
+
+/* ==========================================================================
+   Important!
+   ========================================================================== */
+/*
+ * All partials and custom scss files have blocks with comment delimited sections.
+ *	Those sections are:
+ *  //block (block reference placeholders)
+ *	//box (box model properties)
+ *  //font (font properties)
+ *  //break (breakpoint properties)
+ *  //color (color properties)
  */
 
 /*
