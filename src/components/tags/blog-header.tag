@@ -1,4 +1,4 @@
-<blog-header id="blog" class="row">
+<blog-header id="blog" class="blog__header box">
   <article>
     <h2>How About A Fun Blog</h2>
     <img src="media/images/blog-picture.jpg">

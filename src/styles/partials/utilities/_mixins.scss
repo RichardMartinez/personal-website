@@ -301,49 +301,14 @@ Clearfix
   }
 }
 
-/*
-* Reset Colors
-* This mixin should be used to reset any background and text colors for print (to black and white)
-*/
-@mixin resetPrintColors($textColor: if(variable-exists(medium-cyan), $black, #000000), $bgColor: transparent, $fill: null, $justProps: false) {
-  @if $justProps == false {
-    @include breakpoint($print $start) {
-      @if $bgColor != null {
-        /* color */
-        background-color: $bgColor;
-      }
-      @if $fill != null {
-          /* color */
-          fill: $fill;
-      }
-      @if $textColor != null {
-        /* color */
-        color: $textColor;
-        //this is to help reset a link
-        &:link {
-          color: $textColor;
-        }
-      }
+@mixin box($padding) {
+    @include cf;
+    display: block;
+    padding: $padding;
+
+    > :last-child {
+        margin-bottom: 0;
     }
-  }
-  @else {
-    @if $bgColor != null {
-      /* color */
-      background-color: $bgColor;
-    }
-    @if $fill != null {
-        /* color */
-        fill: $fill;
-    }
-    @if $textColor != null {
-      /* color */
-      color: $textColor;
-      //this is to help reset a link
-      &:link {
-        color: $textColor;
-      }
-    }
-  }
 }
 
 /*

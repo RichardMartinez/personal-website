@@ -5,17 +5,23 @@
 ************************************************************************************************/
 
 .footer--main {
-  box-shadow: 0px -2px 2px #000;
-  background-color: #404040;
+  box-shadow: 0px -2px 2px $black;
+  background-color: $dark-grey;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 100;
 
-  a{
+  a {
     font-family: 'Ubuntu', san-serif;
     color: #3079d9;
-  }
 
-  a:hover{
-    color: #b3d92b;
+    &:hover {
+      color: #b3d92b;
+    }
   }
 
   span{

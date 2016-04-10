@@ -1,4 +1,4 @@
-<blog-posts id="blog-posts" class="row">
+<blog-posts id="blog-posts" class="box">
   <!-- Post Template Below
     <article id="article-title-id" class="clearfix">
       <div class="title-section clearfix">

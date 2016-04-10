@@ -1,4 +1,4 @@
-<about id="about" class="about row">
+<about id="about" class="about box">
   <article>
     <h2 class="about__heading xs-title-pos">Why I'm Motivated</h2>
     <div class="motivation-img">

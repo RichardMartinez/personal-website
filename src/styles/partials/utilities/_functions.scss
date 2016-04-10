@@ -1,130 +1,151 @@
+/***********************************************************************************************
+*
+* Functions Index
+*
+***********************************************************************************************/
+
 /*
 *From String To Number
 *Currently used to set a string with unit value, to a number with unit value.
 *It could potentially be use to check unit type.
 */
-@function stringUnitValueToNumber($numberString, $unit) {
+@function stringUnitValueToNumber($number-string, $unit) {
   $strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
   $units:   1px  1cm  1mm  1%  1ch  1pica  1in  1em  1rem  1pt  1pc  1ex  1vw  1vh  1vmin  1vmax;
   $index: index($strings, $unit);
 
   @if not $index {
-    @warn "Unknown unit '#{$unit}'.";
+    @warn 'Unknown unit '#{$unit}'.';
     @return false;
   }
 
-  @return $numberString * nth($units, $index);
+  @return $number-string * nth($units, $index);
 }
 
 /*To String
 *convert any value to a string
 */
 
-@function toString($value){
+@function toString($value) {
   @return inspect($value);
 }
 /*Split Unit And Value
 *return a list of the unit and the value
-*to return just a number set $justNumber to true
-*to return just a unit type set $justUnits to true
+*to return just a number set $just-number to true
+*to return just a unit type set $just-units to true
 */
 
-@function splitUnitAndValue($unitValue, $justNumber: false, $justUnits: false){
+@function splitUnitAndValue($unit-value, $just-number: false, $just-units: false) {
 
-  $unitValueList: toList($unitValue);
-  $theNumbers: $unitValue / ($unitValue * 0 + 1);
-  //complicated way of doing what the unit function already does
-  // $stringNumberValue: toString($theNumbers);
-  // $stringNumberLength: str-length($stringNumberValue);
-  // $strinUnitValue: toString($unitValue);
-  // $strinUnitLength: str-length($strinUnitValue);
-  // $units: str-slice($strinUnitValue, $stringNumberLength + 1, $strinUnitLength);
-  $theUnits: unit($unitValue);
-  @if $justNumber == true{
-    @return $theNumbers;
-  }
-  @else if $justUnits == true{
-    @return $theUnits;
-  }
-  @else{
-    @return ($theNumbers, $theUnits);
+  $unit-value-list: toList($unit-value);
+  $the-numbers: $unit-value / ($unit-value * 0 + 1);
+  $the-units: unit($unit-value);
+
+  @if $just-number == true {
+    @return $the-numbers;
+  } @else if $just-units == true {
+    @return $the-units;
+  } @else {
+    @return ($the-numbers, $the-units);
   }
 }
 /*Rems To Pixels
 *Convert a REM unit value to a pixel unit value
 *base size is the value that rems are based off of
 *if you have a base size variable use that as the baseSize argument
-*If you don't want to return a number (with unit value), and instead want to return a string(with unit value), change boolean value of $typeNumber to false;
+*If you don't want to return a number (with unit value), and instead want to return a string(with unit value), change boolean value of $type-number to false;
 */
 
-@function remsToPixels($remValue, $baseSize: if(variable-exists(base-size) or global-variable-exists(base-size), $base-size, 16px), $typeNumber: true){
-  $baseSizeMap: splitUnitAndValue($baseSize);
-  $remValueMap: splitUnitAndValue($remValue);
-  $pixelValueString: unquote((nth($remValueMap, 1) * nth($baseSizeMap, 1)) + "px");
-  $pixelValueNumber: stringUnitValueToNumber(nth($remValueMap, 1) * nth($baseSizeMap, 1), "px");
-  @if nth($remValueMap, 2) != rem{
-    @error "The remsToPixels function expects a value using rem units as the first argument, and you are currently using " + nth($remValueMap, 2) + " units.";
-  }
-  @else if nth($baseSizeMap, 2) != px{
-    @error "The remsToPixels function expects a value using px units as the second argument, and you are currently using " + nth($baseSizeMap, 2) + " units.";
-  }
-  @else if $typeNumber == false{
-        @return $pixelValueString;
-  }
-  @else{
-    @return $pixelValueNumber;
+@function remsToPixels($rem-value, $base-size: 10px, $type-number: true) {
+  $base-size-map: splitUnitAndValue($base-size);
+  $rem-value-map: splitUnitAndValue($rem-value);
+  $pixel-value-string: unquote((nth($rem-value-map, 1) * nth($base-size-map, 1)) + 'px');
+  $pixel-value-number: stringUnitValueToNumber(nth($rem-value-map, 1) * nth($base-size-map, 1), 'px');
+
+  @if nth($rem-value-map, 2) != rem {
+    @error 'The remsToPixels function expects a value using rem units as the first argument, and you are currently using ' + nth($rem-value-map, 2) + ' units.';
+  } @else if nth($base-size-map, 2) != px {
+    @error 'The remsToPixels function expects a value using px units as the second argument, and you are currently using ' + nth($base-size-map, 2) + ' units.';
+  } @else if $type-number == false {
+    @return $pixel-value-string;
+  } @else {
+    @return $pixel-value-number;
   }
 }
 
-@function pixelsToRems($pixelValue, $baseSize: if(variable-exists(base-size) or global-variable-exists(base-size), $base-size, 16px), $typeNumber: true){
-  $baseSizeMap: splitUnitAndValue($baseSize);
-  $pxValueMap: splitUnitAndValue($pixelValue);
-  $remValueString: unquote((nth($pxValueMap, 1) / nth($baseSizeMap, 1)) + "rem");
-  $remValueNumber: stringUnitValueToNumber(nth($pxValueMap, 1) / nth($baseSizeMap, 1), "rem");
-  @if nth($pxValueMap, 2) != px{
-    @error "The pxToPixels function expects a value using px units as the first argument, and you are currently using " + nth($pxValueMap, 2) + " units.";
-  }
-  @else if nth($baseSizeMap, 2) != px{
-    @error "The pxToPixels function expects a value using px units as the second argument, and you are currently using " + nth($baseSizeMap, 2) + " units.";
-  }
-  @else if $typeNumber == false{
-        @return $remValueString;
-  }
-  @else{
-    @return $remValueNumber;
+@function pixelsToRems($pixel-value, $base-size: 10px, $type-number: true) {
+  $base-size-map: splitUnitAndValue($base-size);
+  $px-value-map: splitUnitAndValue($pixel-value);
+  $rem-value-string: unquote((nth($px-value-map, 1) / nth($base-size-map, 1)) + 'rem');
+  $rem-value-number: stringUnitValueToNumber(nth($px-value-map, 1) / nth($base-size-map, 1), 'rem');
+
+  @if nth($px-value-map, 2) != px {
+    @error 'The pxToPixels function expects a value using px units as the first argument, and you are currently using ' + nth($px-value-map, 2) + ' units.';
+  } @else if nth($base-size-map, 2) != px {
+    @error 'The pxToPixels function expects a value using px units as the second argument, and you are currently using ' + nth($base-size-map, 2) + ' units.';
+  } @else if $type-number == false {
+    @return $rem-value-string;
+  } @else {
+    @return $rem-value-number;
   }
 }
+
 
 /*
 * Lines For Font Size Simplified
-* requires font size
+* requires font size and base line height
 */
-@function linesForFontSizeSimple($font-size, $base-line-height) {
-  @return ceil($font-size / $base-line-height);
+@function linesForFontSizeSimple($font-size, $the-base-line-height) {
+
+  //get the number of lines and multiply that by the base size of an individual line
+  @return ceil($font-size / $the-base-line-height) * $the-base-line-height;
+}
+
+
+/*
+* Debug Text
+* This is meant to return a list of Modular Scale typography sizes in rems, and the pixel equivalent
+*/
+@function debugText($start-num, $num-list-items, $and-pixels: true) {
+  $list: ();
+  $new-list: ();
+  $counter: $start-num;
+
+  @for $i from $start-num to $num-list-items {
+    $list: append($list, ms($i), comma);
+  }
+
+  @each $text-size in $list {
+    @if type-of($text-size) == number {
+
+      @if $and-pixels == true {
+        $text-size-in-px: splitUnitAndValue($text-size, true) * $base-size;
+
+        $new-list: append($new-list, 'MS'+ $counter + ': ' +  $text-size + ' = ' + $text-size-in-px);
+      } @else {
+        $new-list: append($new-list, 'MS' + $counter + ': ' + $text-size);
+      }
+      $counter: $counter + 1;
+    } @else {
+      @error 'debugText with $and-pixels on is expecting a number value in a list. It errored on a type value of ' + type-of($text-size) + '.';
+    }
+  }
+
+  @return $new-list;
 }
 
 /*
-* Needs work, to be able to loop multiple maps.
+* Base Line Heights
+* This will return a scaled value of the base-line-height
+* It is intended to be used to set spacing related properties. Mainly those related to vertical rhythm (e.g. top/bottom margin/padding).
+* However, it can be used for other space related properties.
+* Example: baseLineHeight(3) will return three * base-line-height
+* It is best to use whole numbers for only top or only bottom spacing, and whole numbers or numbers the increments in half numbers for having both top and bottom spacing.
+* Example: 0.5, 1, 1.5, 2, 2.5, 3, etc.
 */
-@function debugText($map, $andPixels: true){
-  $newMap: ();
-
-  @each $propertyName, $textSize in $map {
-
-      @if type-of($textSize) == number{
-
-        @if $andPixels == true{
-          $text-size-in-px: splitUnitAndValue($textSize, true) * $base-size;
-
-          $newMap: append($newMap, $propertyName + ": " +  $textSize + " = " + $text-size-in-px);
-        }
-        @else{
-          $newMap: append($newMap, $propertyName + ": " + $textSize);
-        }
-      }
-      @else{
-        @error "debugText with $andPixels on is expecting a number value in a map. It errored on a type value of " + type-of($textSize) + ".";
-      }
-  }
-  @return $newMap;
+@function baseLineHeights(
+  $number-of-line-heights: 1,
+  $base-line-height: if(variable-exists(base-line-height) or global-variable-exists(base-line-height), $base-line-height, 16px)
+) {
+  @return ($base-line-height * $number-of-line-heights);
 }

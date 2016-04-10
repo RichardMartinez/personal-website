@@ -1,4 +1,4 @@
-<footer-main class="footer--main navbar-fixed-bottom">
+<footer-main class="footer--main">
   <nav>
     <a href="#about-nav-point" target="_self" class="about-btn" title="About Me">about</a>
     <span>|</span>

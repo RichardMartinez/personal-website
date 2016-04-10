@@ -3,26 +3,22 @@
   <head>
     <title>Richard Martinez Personal Site</title>
     <link href="media/other/logo-favicon.ico" rel="icon" type="image/x-icon" />
-    <link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   </head>
   <body>
+    <header-main></header-main>
     <div class="main">
-      <header-main></header-main>
-      <div class="container">
         <span class="nav-to-home" id="home-nav-point"></span>
         <greetings></greetings>
         <span class="nav-to-about" id="about-nav-point"></span>
         <about></about>
         <span class="nav-to-blog" id="blog-nav-point"></span>
         <blog></blog>
-        <blog-posts></blog-posts>
-      </div>
-      <footer-main></footer-main>
     </div>
+    <footer-main></footer-main>
     <!-- include the tag -->
     <script type="riot/tag" src="tags/header-main.tag"></script>
     <script type="riot/tag" src="tags/greetings.tag"></script>

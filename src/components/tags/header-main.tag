@@ -1,4 +1,4 @@
-<header-main class="header--main navbar-fixed-top">
+<header-main class="header--main">
   <div class="top-navigation">
     <img class="logo" src="media/images/logo.png" alt="Logo-Richard-Martinez">
     <nav>
