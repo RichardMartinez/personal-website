@@ -1,17 +1,15 @@
 /***********************************************************************************************
 *
-* Media Index
+* Miscellaneous Resets Index
 *
 ************************************************************************************************/
 
-img {
-  display: block;
-  width: 100%;
+html {
+  // box
+  box-sizing: border-box;
 }
 
-.logo{
-  /* box model */
-  //these are temp. styles as they will be replace by flexbox evnentually
-  float: left;
-  width: 10%;
+*, *:before, *:after {
+  // box
+  box-sizing: inherit;
 }

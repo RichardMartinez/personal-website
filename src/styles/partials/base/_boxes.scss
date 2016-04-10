@@ -4,16 +4,6 @@
 *
 ************************************************************************************************/
 
-html {
-  // box
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  // box
-  box-sizing: inherit;
-}
-
 .box,
 %box {
   @include box(baseLineHeights());
@@ -23,7 +13,15 @@ html {
 }
 
 .home {
+  display: flex;
   height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint($md) {
+    border-left: 1px dashed rgba(48, 121, 217, .5);
+    border-right: 1px dashed rgba(48, 121, 217, .5);
+  }
 
   .bearded-greetings{
     cursor: pointer;
@@ -35,19 +33,39 @@ html {
     @include atMedia(xs) {height: 299px; background-size: auto 598px;}
     @include atMedia(s) {height: 322px; background-size: auto 644px;}
     @include atMedia(m) {height: 354px; background-size: auto 708px;}
-  }
 
-  .bearded-greetings:hover{
-    @include atMedia(xs) {background-position: center -299px;}
-    @include atMedia(s) {background-position: center -322px;}
-    @include atMedia(m) {background-position: center -354px;}
+    &:hover{
+      @include atMedia(xs) {background-position: center -299px;}
+      @include atMedia(s) {background-position: center -322px;}
+      @include atMedia(m) {background-position: center -354px;}
+    }
   }
+}
 
-  .rich-snippet{
-    margin-top: 55px;
+.home__beard-image {
+  overflow: hidden;
+  width: span(1 of 3);
+  padding-right: gutter(3);
+
+  &:hover {
+
+    .home__beard-image--newer {
+      display: none;
+    }
+
+    .home__beard-image--older {
+      display: block;
+    }
   }
+}
 
-  @include atMedia(m) {border-right: 1px dashed rgba(48, 121, 217, .5); border-left: 1px dashed rgba(48, 121, 217, .5);}
+.home__beard-image--older {
+  display: none;
+}
+
+.home__rich-snippet {
+  width: span(2 of 3);
+  padding-left: gutter(3);
 }
 
 .about {
@@ -96,26 +114,6 @@ html {
       @include atMedia(m) {text-align: right;}
     }
   }
-}
-
-.home__beard-image {
-  display: inline-block;
-  overflow: hidden;
-
-  &:hover {
-
-    .home__beard-image--newer {
-      display: none;
-    }
-
-    .home__beard-image--older {
-      display: block;
-    }
-  }
-}
-
-.home__beard-image--older {
-  display: none;
 }
 
 .about__heading {
